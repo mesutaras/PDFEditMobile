@@ -21,7 +21,7 @@ export const CTA = () => {
               </span>
             </p>
             <a
-              href="mailto:arshverma.dev@gmail.com?subject=Tool%20Request%20-%20SimplyPDF"
+              href="mailto:arshverma.dev@gmail.com?subject=Tool%20Request%20-%20PDFEditMobile"
               className="btn-primary inline-flex items-center gap-2 px-12 py-5 text-lg"
             >
               Request a Tool

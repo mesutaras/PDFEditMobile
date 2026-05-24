@@ -29,7 +29,7 @@ const changelog = [
     date: "December 15, 2025",
     title: "Official Launch",
     description:
-      "SimplyPDF is now live with a comprehensive set of free PDF tools.",
+      "PDFEditMobile is now live with a comprehensive set of free PDF tools.",
     changes: [
       { icon: Star, text: "Launched with 15+ essential PDF tools" },
       { icon: Layout, text: "Responsive design for mobile and desktop" },
@@ -64,7 +64,7 @@ export default function ChangelogClient() {
             Changelog
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-500">
-            Stay updated with the latest features and improvements to SimplyPDF.
+            Stay updated with the latest features and improvements to PDFEditMobile.
           </p>
         </motion.div>
 

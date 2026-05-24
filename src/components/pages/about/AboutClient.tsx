@@ -21,7 +21,7 @@ export default function AboutClient() {
         <SimpleCTA
           title="Ready to tackle the next big project?"
           description="Whether it's a game, website, or app — I'm always excited to collaborate on new ideas."
-          primaryBtnText="Explore SimplyPDF"
+          primaryBtnText="Explore PDFEditMobile"
           primaryBtnLink="/"
         />
       </div>

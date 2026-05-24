@@ -46,8 +46,8 @@ export function EditMetadataClient() {
     author: "",
     subject: "",
     keywords: "",
-    creator: "SimplyPDF",
-    producer: "SimplyPDF",
+    creator: "PDFEditMobile",
+    producer: "PDFEditMobile",
   });
 
   const handleDrop = async (e: React.DragEvent) => {
@@ -122,8 +122,8 @@ export function EditMetadataClient() {
       author: "",
       subject: "",
       keywords: "",
-      creator: "SimplyPDF",
-      producer: "SimplyPDF",
+      creator: "PDFEditMobile",
+      producer: "PDFEditMobile",
     });
   };
 

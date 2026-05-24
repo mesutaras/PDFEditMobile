@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Optical Character Recognition",
     "Searchable PDF",
     "Extract Text from PDF",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "OCR PDF Online | #1 Free OCR Tool",

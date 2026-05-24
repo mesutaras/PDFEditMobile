@@ -583,7 +583,7 @@ export function ExtractPagesClient() {
             {
               question: "Does extracting pages reduce the quality?",
               answer:
-                "No, SimplyPDF ensures that the original quality, fonts, and images are preserved perfectly.",
+                "No, PDFEditMobile ensures that the original quality, fonts, and images are preserved perfectly.",
             },
             {
               question: "Are my files safe?",

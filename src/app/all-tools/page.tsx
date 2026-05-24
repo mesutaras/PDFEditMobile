@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ArrowLeft, Hammer, Info, Layout } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "All PDF Tools | SimplyPDF",
+  title: "All PDF Tools | PDFEditMobile",
   description:
-    "A complete list of all the free online PDF tools and resources available on SimplyPDF.",
+    "A complete list of all the free online PDF tools and resources available on PDFEditMobile.",
 };
 
 const sections = [
@@ -76,7 +76,7 @@ export default function SitemapPage() {
           </h1>
           <p className="text-lg font-medium text-gray-500">
             Every tool, feature, and legal document on{" "}
-            <span className="text-black">SimplyPDF</span> — all in one place.
+            <span className="text-black">PDFEditMobile</span> — all in one place.
           </p>
         </div>
 

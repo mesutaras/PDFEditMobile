@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Join PDF",
     "Free PDF Merger",
     "Merge PDF Online",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Merge PDF Online | #1 Free PDF Merger",

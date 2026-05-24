@@ -97,7 +97,7 @@ export default function FeaturesClient() {
             <span className="animate-text-shimmer">Every PDF Task</span>
           </h1>
           <p className="mx-auto max-w-2xl text-xl text-gray-500">
-            Discover the full potential of SimplyPDF&apos;s ecosystem. No
+            Discover the full potential of PDFEditMobilePDFEditMobile&apos;sapos;s ecosystem. No
             signups, no limits, just pure productivity.
           </p>
         </motion.div>

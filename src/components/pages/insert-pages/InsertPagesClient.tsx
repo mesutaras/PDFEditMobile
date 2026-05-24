@@ -494,7 +494,7 @@ export function InsertPagesClient() {
             {
               question: "Will the page sizes match?",
               answer:
-                "SimplyPDF preserves the original orientation and size of each inserted page.",
+                "PDFEditMobile preserves the original orientation and size of each inserted page.",
             },
           ]}
         />

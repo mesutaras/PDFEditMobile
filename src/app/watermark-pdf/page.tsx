@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Add Watermark to PDF",
     "PDF Watermark Online",
     "Protect PDF with Watermark",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Add Watermark to PDF | #1 Free Watermarking Tool",

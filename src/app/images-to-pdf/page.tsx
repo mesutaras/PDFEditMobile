@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ImagesToPDFClient } from "@/components/pages/images-to-pdf/ImagesToPdfClient";
 
 export const metadata: Metadata = {
-  title: "Images to PDF - Convert JPG, PNG, WebP to PDF | SimplyPDF",
+  title: "Images to PDF - Convert JPG, PNG, WebP to PDF | PDFEditMobile",
   description:
     "Convert your images (JPG, PNG, WebP) to high-quality PDF documents for free. Adjust margins, orientation, and image size. 100% private and secure.",
 };

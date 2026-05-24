@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Change PDF Title",
     "Update PDF Author",
     "PDF Properties Editor",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Edit PDF Metadata | #1 Free PDF Property Editor",

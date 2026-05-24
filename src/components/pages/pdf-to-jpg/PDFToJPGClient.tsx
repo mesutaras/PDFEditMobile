@@ -369,7 +369,7 @@ export function PDFToJPGClient() {
           {
             question: "Can I convert large PDFs?",
             answer:
-              "Yes, SimplyPDF can handle large files. Since processing is local, performance depends on your device speed, but most files convert instantly.",
+              "Yes, PDFEditMobile can handle large files. Since processing is local, performance depends on your device speed, but most files convert instantly.",
           },
           {
             question: "Is it really free?",

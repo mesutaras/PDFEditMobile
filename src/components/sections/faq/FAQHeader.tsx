@@ -26,7 +26,7 @@ export const FAQHeader = () => {
         Frequently Asked Questions
       </h1>
       <p className="mx-auto max-w-2xl text-lg text-gray-500">
-        Find answers to common questions about SimplyPDF and our tools.
+        Find answers to common questions about PDFEditMobile and our tools.
       </p>
     </motion.div>
   );

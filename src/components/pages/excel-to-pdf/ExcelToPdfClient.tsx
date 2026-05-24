@@ -397,7 +397,7 @@ export function ExcelToPDFClient() {
             {
               question: "Can I convert CSV files?",
               answer:
-                "Yes, SimplyPDF supports .csv, .xls, and .xlsx formats for automatic conversion to PDF.",
+                "Yes, PDFEditMobile supports .csv, .xls, and .xlsx formats for automatic conversion to PDF.",
             },
           ]}
         />

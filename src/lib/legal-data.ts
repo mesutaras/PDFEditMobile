@@ -19,7 +19,7 @@ export const privacySections = [
   {
     icon: Eye,
     title: "Information We Collect",
-    content: `SimplyPDF is designed with privacy as a core principle. We collect minimal information:
+    content: `PDFEditMobile is designed with privacy as a core principle. We collect minimal information:
 
 **Automatically Collected:**
 - Basic analytics data (page views, browser type, device type) through cookies
@@ -38,7 +38,7 @@ All PDF processing happens directly in your browser. Your files never leave your
     title: "How We Process Your Files",
     content: `**100% Browser-Based Processing**
 
-Unlike other PDF tools, SimplyPDF processes all files locally in your web browser using JavaScript. This means:
+Unlike other PDF tools, PDFEditMobile processes all files locally in your web browser using JavaScript. This means:
 
 - Your files are NEVER uploaded to any server
 - Processing happens entirely on your device
@@ -101,7 +101,7 @@ We participate in interest-based advertising using Google AdSense. This means ad
     icon: Users,
     title: "Children's Privacy (COPPA Compliance)",
     content: `**Age Restriction:**
-SimplyPDF is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13.
+PDFEditMobile is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13.
 
 **COPPA Compliance:**
 In compliance with the Children's Online Privacy Protection Act (COPPA):
@@ -164,14 +164,14 @@ export const termsSections = [
   {
     icon: FileText,
     title: "1. Acceptance of Terms",
-    content: `By accessing and using SimplyPDF ("the Service"), you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our Service.
+    content: `By accessing and using PDFEditMobile ("the Service"), you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our Service.
 
 These terms apply to all visitors, users, and others who access or use the Service. We reserve the right to modify these terms at any time. Continued use of the Service after any changes constitutes acceptance of the new terms.`,
   },
   {
     icon: Globe,
     title: "2. Description of Service",
-    content: `SimplyPDF provides free online tools for PDF manipulation, including but not limited to:
+    content: `PDFEditMobile provides free online tools for PDF manipulation, including but not limited to:
 
 • Merging multiple PDF files into one document
 • Splitting PDF documents into separate files
@@ -187,7 +187,7 @@ These terms apply to all visitors, users, and others who access or use the Servi
   {
     icon: Users,
     title: "3. User Responsibilities",
-    content: `When using SimplyPDF, you agree to:
+    content: `When using PDFEditMobile, you agree to:
 
 **Lawful Use:**
 • Use the Service only for lawful purposes
@@ -208,19 +208,19 @@ These terms apply to all visitors, users, and others who access or use the Servi
     icon: Scale,
     title: "4. Intellectual Property",
     content: `**Our Content:**
-The SimplyPDF name, logo, and all associated graphics, code, and content are protected by intellectual property laws. You may not copy, modify, or distribute our proprietary content without written permission.
+The PDFEditMobile name, logo, and all associated graphics, code, and content are protected by intellectual property laws. You may not copy, modify, or distribute our proprietary content without written permission.
 
 **Your Content:**
 You retain all rights to your PDF files and documents. By using our Service, you do not grant us any rights to your content. Since all processing happens in your browser, we never have access to your files.
 
 **Open Source:**
-SimplyPDF uses various open-source libraries. These libraries retain their respective licenses and attributions.`,
+PDFEditMobile uses various open-source libraries. These libraries retain their respective licenses and attributions.`,
   },
   {
     icon: AlertTriangle,
     title: "5. Disclaimer of Warranties",
     content: `**AS-IS Service:**
-SimplyPDF is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, either express or implied, including but not limited to:
+PDFEditMobile is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, either express or implied, including but not limited to:
 
 • Implied warranties of merchantability
 • Fitness for a particular purpose
@@ -241,7 +241,7 @@ Always keep backup copies of your original files. We are not responsible for any
     icon: Gavel,
     title: "6. Limitation of Liability",
     content: `**Maximum Liability:**
-To the maximum extent permitted by law, SimplyPDF and its creators shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:
+To the maximum extent permitted by law, PDFEditMobile and its creators shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:
 
 • Loss of profits or revenue
 • Loss of data or documents
@@ -300,7 +300,7 @@ export const disclaimerSections = [
   {
     icon: Info,
     title: "General Information",
-    content: `The information provided by SimplyPDF ("we," "us," or "our") on our website is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.`,
+    content: `The information provided by PDFEditMobile ("we," "us," or "our") on our website is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.`,
   },
   {
     icon: Shield,
@@ -310,6 +310,6 @@ export const disclaimerSections = [
   {
     icon: Scale,
     title: "Local Processing",
-    content: `SimplyPDF processes all files locally in your browser. While this provides enhanced privacy, we are not responsible for any data loss, file corruption, or security breaches that may occur on your device or as a result of your browser's configuration.`,
+    content: `PDFEditMobile processes all files locally in your browser. While this provides enhanced privacy, we are not responsible for any data loss, file corruption, or security breaches that may occur on your device or as a result of your browser's configuration.`,
   },
 ];

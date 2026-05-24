@@ -460,7 +460,7 @@ export function ReorderPagesClient() {
             {
               question: "Can I reorder pages in a very large PDF?",
               answer:
-                "Yes, SimplyPDF is optimized to handle large documents efficiently in your browser.",
+                "Yes, PDFEditMobile is optimized to handle large documents efficiently in your browser.",
             },
             {
               question: "Does reordering change the content of the pages?",

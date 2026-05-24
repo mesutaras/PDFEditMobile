@@ -316,8 +316,8 @@ export function MergePDFClient() {
       if (metadata.title) mergedPdf.setTitle(metadata.title);
       if (metadata.author) mergedPdf.setAuthor(metadata.author);
       if (metadata.subject) mergedPdf.setSubject(metadata.subject);
-      mergedPdf.setProducer("SimplyPDF");
-      mergedPdf.setCreator("SimplyPDF");
+      mergedPdf.setProducer("PDFEditMobile");
+      mergedPdf.setCreator("PDFEditMobile");
 
       // Cache loaded source PDFs to avoid reloading the same file multiple times
       const loadedPdfs = new Map<string, PDFDocument>();
@@ -359,7 +359,7 @@ export function MergePDFClient() {
       // Add to history
       recordAction(
         "Merged PDF",
-        "merged_SimplyPDF.pdf",
+        "merged_PDFEditMobile.pdf",
         `${files.length} files merged`
       );
     } catch (error) {
@@ -985,7 +985,7 @@ export function MergePDFClient() {
             {
               question: "Are my files safe and private?",
               answer:
-                "Yes, SimplyPDF is unique because it works entirely in your web browser. Your files are never uploaded to any server, making it the most secure way to merge sensitive documents.",
+                "Yes, PDFEditMobile is unique because it works entirely in your web browser. Your files are never uploaded to any server, making it the most secure way to merge sensitive documents.",
             },
           ]}
         />

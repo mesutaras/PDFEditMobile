@@ -16,7 +16,7 @@ export default function DisclaimerClient() {
       <div className="container mx-auto max-w-4xl">
         <LegalHeader
           title="Disclaimer"
-          description="Please read this disclaimer carefully before using SimplyPDF."
+          description="Please read this disclaimer carefully before using PDFEditMobile."
           icon={AlertCircle}
         />
 

@@ -62,7 +62,7 @@ export default function SupportClient() {
             Support Center
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-500">
-            Need help with SimplyPDF? We&apos;re here to assist you.
+            Need help with PDFEditMobile? We&apos;re here to assist you.
           </p>
         </motion.div>
 
@@ -103,7 +103,7 @@ export default function SupportClient() {
             <h2 className="mb-4 text-2xl font-bold">Help Documentation</h2>
             <p className="mx-auto mb-8 max-w-lg text-gray-400">
               Coming soon: Comprehensive guides and tutorials to help you master
-              every SimplyPDF tool.
+              every PDFEditMobile tool.
             </p>
           </div>
         </motion.div>

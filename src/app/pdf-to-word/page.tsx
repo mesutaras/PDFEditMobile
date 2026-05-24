@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "PDF to DocX",
     "Convert PDF to Word",
     "Free Online Converter",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "PDF to Word Converter | #1 Free Conversion Tool",

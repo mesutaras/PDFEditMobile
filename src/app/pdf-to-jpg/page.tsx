@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "PDF to Image",
     "Extract PDF Pages",
     "Free Online Converter",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "PDF to JPG Converter | #1 Free Image Extraction Tool",

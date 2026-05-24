@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "Rotate PDF",
     "Change PDF Orientation",
     "Free PDF Rotator",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Rotate PDF Online | #1 Free PDF Rotation Tool",

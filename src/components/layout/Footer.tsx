@@ -29,7 +29,7 @@ const socials = [
   { icon: Twitter, href: "https://x.com/TheArshVerma", label: "Twitter" },
   {
     icon: Github,
-    href: "https://github.com/ArshVermaGit/SimplyPDF",
+    href: "https://github.com/ArshVermaGit/PDFEditMobile",
     label: "GitHub",
   },
   {
@@ -53,13 +53,13 @@ export default function Footer() {
               <div className="relative h-10 w-10 transition-transform group-hover:scale-110 group-hover:rotate-3">
                 <Image
                   src="/logo.png"
-                  alt="SimplyPDF Logo"
+                  alt="PDFEditMobile Logo"
                   fill
                   className="rounded-xl bg-white object-contain"
                 />
               </div>
               <span className="text-xl font-bold tracking-tight">
-                Simply<span className="text-gray-400">PDF</span>
+                PDFEdit<span className="text-gray-400">Mobile</span>
               </span>
             </Link>
             <p className="mb-6 text-sm leading-relaxed text-gray-400">
@@ -163,9 +163,9 @@ export default function Footer() {
           <div className="flex flex-col items-center justify-center gap-6 text-sm text-gray-400 md:flex-row md:gap-12">
             {/* Copyright & GitHub */}
             <div className="flex items-center gap-6">
-              <span>© {currentYear} SimplyPDF. All rights reserved.</span>
+              <span>© {currentYear} PDFEditMobile. All rights reserved.</span>
               <a
-                href="https://github.com/ArshVermaGit/SimplyPDF"
+                href="https://github.com/ArshVermaGit/PDFEditMobile"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors hover:text-white"
@@ -182,7 +182,7 @@ export default function Footer() {
                   ❤️
                 </span>{" "}
                 by{" "}
-                <span className="font-black text-white ml-1">Arsh Verma</span>
+                <span className="font-black text-white ml-1">Mesut Aras</span>
               </p>
             </div>
 

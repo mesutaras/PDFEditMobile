@@ -18,7 +18,7 @@ export default function TermsClient() {
       <div className="container mx-auto max-w-4xl">
         <LegalHeader
           title="Terms of Service"
-          description="Please read these terms carefully before using SimplyPDF."
+          description="Please read these terms carefully before using PDFEditMobile."
           lastUpdated="December 22, 2024"
           icon={Scale}
         />

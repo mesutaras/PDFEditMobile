@@ -376,7 +376,7 @@ export function ImagesToPDFClient() {
             {
               question: "Which image formats are supported?",
               answer:
-                "SimplyPDF supports JPG, PNG, and WebP formats for instant conversion to PDF.",
+                "PDFEditMobile supports JPG, PNG, and WebP formats for instant conversion to PDF.",
             },
             {
               question: "Is there a limit to how many images I can add?",

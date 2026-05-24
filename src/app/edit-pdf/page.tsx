@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Free PDF Editor",
     "Annotate PDF",
     "PDF Signer",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "PDF Editor Online | #1 Free PDF Editing Tool",

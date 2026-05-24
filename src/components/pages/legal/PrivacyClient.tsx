@@ -17,7 +17,7 @@ export default function PrivacyClient() {
       <div className="container mx-auto max-w-4xl">
         <LegalHeader
           title="Privacy Policy"
-          description="Your privacy matters to us. Learn how SimplyPDF protects your data and respects your rights."
+          description="Your privacy matters to us. Learn how PDFEditMobile protects your data and respects your rights."
           lastUpdated="December 22, 2024"
           icon={Shield}
         />

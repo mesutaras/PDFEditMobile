@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Electronic Signature",
     "PDF Signer",
     "Free PDF Sign",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Sign PDF Online | #1 Free PDF Signing Tool",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Shrink PDF",
     "Small PDF",
     "Free Online Compressor",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Compress PDF Online | #1 Free PDF Compressor",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "simply-pdf",
+  "name": "pdf-edit-mobile",
   "version": "3.0.0",
   "private": true,
   "scripts": {

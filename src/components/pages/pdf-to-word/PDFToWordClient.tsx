@@ -371,7 +371,7 @@ export function PDFToWordClient() {
             {
               question: "Is it safe to convert sensitive files?",
               answer:
-                "Absolutely. SimplyPDF runs entirely in your browser, so your files are never uploaded to any server. Your privacy is guaranteed.",
+                "Absolutely. PDFEditMobile runs entirely in your browser, so your files are never uploaded to any server. Your privacy is guaranteed.",
             },
             {
               question: "Can I convert scanned PDFs?",

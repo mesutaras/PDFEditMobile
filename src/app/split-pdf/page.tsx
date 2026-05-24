@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Separate PDF Pages",
     "Extract PDF Pages",
     "Free PDF Splitter",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Split PDF Online | #1 Free PDF Splitting Tool",

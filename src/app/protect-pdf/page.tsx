@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "PDF Password",
     "Secure PDF",
     "Free PDF Locker",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Protect PDF with Password | #1 Free PDF Security Tool",

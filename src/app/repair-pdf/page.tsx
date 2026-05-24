@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Fix PDF",
     "Recover PDF",
     "Broken PDF Fixer",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Repair PDF Online | #1 Free PDF Recovery Tool",

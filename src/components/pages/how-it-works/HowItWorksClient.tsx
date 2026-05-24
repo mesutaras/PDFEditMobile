@@ -18,7 +18,7 @@ const steps = [
     icon: Cpu,
     title: "1. Local Processing",
     description:
-      "When you select a file, it remains on your device. SimplyPDF uses WebAssembly and JavaScript to process the file directly in your browser's memory.",
+      "When you select a file, it remains on your device. PDFEditMobile uses WebAssembly and JavaScript to process the file directly in your browser's memory.",
   },
   {
     icon: CloudOff,
@@ -66,7 +66,7 @@ export default function HowItWorksClient() {
             How it Works
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-500">
-            SimplyPDF is built on a &quot;Privacy First&quot; architecture.
+            PDFEditMobile is built on a &quot;Privacy First&quot; architecture.
             Here&apos;s how we keep your documents 100% secure.
           </p>
         </motion.div>

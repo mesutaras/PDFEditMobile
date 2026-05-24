@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Reorder PDF Pages",
     "Delete PDF Pages",
     "Manage PDF Pages",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Organize PDF Pages | #1 Free PDF Management Tool",

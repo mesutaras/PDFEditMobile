@@ -16,7 +16,7 @@ export const Features = () => {
 
       <div className="relative z-10 container mx-auto px-4">
         <div className="scroll-reveal mb-16 text-center">
-          <h2 className="section-title mb-4 text-white">Why SimplyPDF?</h2>
+          <h2 className="section-title mb-4 text-white">Why PDFEditMobile?</h2>
           <p className="section-subtitle mx-auto text-gray-400">
             Built for speed, privacy, and simplicity.
           </p>

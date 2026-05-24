@@ -304,7 +304,7 @@ export function UnlockPDFClient() {
                       <div className="flex gap-3 rounded-xl border border-orange-100 bg-orange-50 p-4">
                         <AlertCircle className="h-5 w-5 shrink-0 text-orange-500" />
                         <p className="text-xs leading-relaxed font-medium text-orange-700">
-                          SimplyPDF will attempt to remove printing, copying,
+                          PDFEditMobile will attempt to remove printing, copying,
                           and standard owner restrictions. User passwords are
                           required for full decryption of strongly encrypted
                           files.
@@ -436,7 +436,7 @@ export function UnlockPDFClient() {
             steps: [
               "Upload your password-protected or restricted PDF document.",
               "Enter the document password if you know it. For restricted files, we can often bypass them without a password.",
-              "SimplyPDF will recreate the document without encryption. Download your fully accessible PDF instantly.",
+              "PDFEditMobile will recreate the document without encryption. Download your fully accessible PDF instantly.",
             ],
           }}
           benefits={{

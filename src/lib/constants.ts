@@ -330,7 +330,7 @@ export const contactFaqs = [
     a: "Absolutely! I love hearing feature suggestions. Send them via email or create an issue on GitHub.",
   },
   {
-    q: "Is SimplyPDF open source?",
+    q: "Is PDFEditMobile open source?",
     a: "The core functionality uses open-source libraries. For full source access or collaboration opportunities, please reach out directly.",
   },
 ];
@@ -341,14 +341,14 @@ export const faqCategories = [
     icon: HelpCircle,
     faqs: [
       {
-        question: "What is SimplyPDF?",
+        question: "What is PDFEditMobile?",
         answer:
-          "SimplyPDF is a free online tool that lets you work with PDF files directly in your browser. You can merge, split, compress, convert, rotate, and edit PDFs without uploading them to any server. All processing happens locally on your device for maximum privacy and speed.",
+          "PDFEditMobile is a free online tool that lets you work with PDF files directly in your browser. You can merge, split, compress, convert, rotate, and edit PDFs without uploading them to any server. All processing happens locally on your device for maximum privacy and speed.",
       },
       {
-        question: "Is SimplyPDF really free?",
+        question: "Is PDFEditMobile really free?",
         answer:
-          "Yes, SimplyPDF is completely free to use with no hidden costs. All features are available at no charge. We sustain the service through non-intrusive advertising. There are no premium tiers, file limits, or watermarks on your documents.",
+          "Yes, PDFEditMobile is completely free to use with no hidden costs. All features are available at no charge. We sustain the service through non-intrusive advertising. There are no premium tiers, file limits, or watermarks on your documents.",
       },
       {
         question: "Do I need to create an account?",
@@ -363,7 +363,7 @@ export const faqCategories = [
       {
         question: "What browsers are supported?",
         answer:
-          "SimplyPDF works on all modern browsers including Chrome, Firefox, Safari, Edge, and Opera. We recommend using the latest version of your browser for the best experience. Mobile browsers are also fully supported.",
+          "PDFEditMobile works on all modern browsers including Chrome, Firefox, Safari, Edge, and Opera. We recommend using the latest version of your browser for the best experience. Mobile browsers are also fully supported.",
       },
     ],
   },
@@ -377,9 +377,9 @@ export const faqCategories = [
           "No, your files are NEVER uploaded to our servers. All PDF processing happens entirely in your web browser using JavaScript. This means your sensitive documents never leave your device, ensuring complete privacy and security.",
       },
       {
-        question: "Is SimplyPDF safe to use for sensitive documents?",
+        question: "Is PDFEditMobile safe to use for sensitive documents?",
         answer:
-          "Yes, SimplyPDF is extremely safe for sensitive documents. Since we process everything locally in your browser, confidential information like contracts, financial documents, or personal records never leave your computer. Your data stays on your device.",
+          "Yes, PDFEditMobile is extremely safe for sensitive documents. Since we process everything locally in your browser, confidential information like contracts, financial documents, or personal records never leave your computer. Your data stays on your device.",
       },
       {
         question: "What happens to my files after processing?",

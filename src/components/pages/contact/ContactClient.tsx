@@ -20,7 +20,7 @@ export default function ContactClient() {
         <ContactFAQ />
         <SimpleCTA
           title="Need Help with PDF Tools?"
-          description="Check out our FAQ page for answers to common questions about using SimplyPDF tools."
+          description="Check out our FAQ page for answers to common questions about using PDFEditMobile tools."
           primaryBtnText="Visit FAQ"
           primaryBtnLink="/faq"
           className="bg-black text-white"

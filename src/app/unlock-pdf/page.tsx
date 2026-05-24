@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Remove PDF Password",
     "PDF Decrypt",
     "Free PDF Unlocker",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "Unlock PDF Online | #1 Free PDF Unlocking Tool",

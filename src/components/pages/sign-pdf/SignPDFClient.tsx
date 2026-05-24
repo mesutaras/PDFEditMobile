@@ -1104,7 +1104,7 @@ export function SignPDFClient() {
               },
               {
                 title: "Privacy Guaranteed",
-                desc: "Your document and your signature never leave your device. SimplyPDF is a local tool.",
+                desc: "Your document and your signature never leave your device. PDFEditMobile is a local tool.",
               },
               {
                 title: "Visual Precision",
@@ -1120,7 +1120,7 @@ export function SignPDFClient() {
             {
               question: "Is this signature legally binding?",
               answer:
-                "SimplyPDF provides electronic signatures. Depending on your jurisdiction and the type of document, this may or may not satisfy legal requirements for 'qualified' digital signatures.",
+                "PDFEditMobile provides electronic signatures. Depending on your jurisdiction and the type of document, this may or may not satisfy legal requirements for 'qualified' digital signatures.",
             },
             {
               question: "Does it work on mobile?",

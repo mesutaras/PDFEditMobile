@@ -109,7 +109,7 @@ export default function WelcomeAuthModal() {
                 </motion.div>
 
                 <h2 className="mb-2 text-2xl font-bold text-gray-900">
-                  Welcome to SimplyPDF
+                  Welcome to PDFEditMobile
                 </h2>
                 <p className="text-gray-500">
                   The Ultimate, Private PDF Toolkit

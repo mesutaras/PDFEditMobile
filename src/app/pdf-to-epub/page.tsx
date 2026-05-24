@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PDFToEPUBClient } from "@/components/pages/pdf-to-epub/PdfToEpubClient";
 
 export const metadata: Metadata = {
-  title: "PDF to EPUB - Convert PDF to eBook | SimplyPDF",
+  title: "PDF to EPUB - Convert PDF to eBook | PDFEditMobile",
   description:
     "Convert your PDF documents into EPUB eBooks for better reading on mobile devices and eReaders. Fast, free, and 100% private conversion in your browser.",
 };

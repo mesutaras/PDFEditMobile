@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "PDF to XLSX",
     "Extract Table from PDF",
     "Free PDF to Excel Converter",
-    "SimplyPDF",
+    "PDFEditMobile",
   ],
   openGraph: {
     title: "PDF to Excel Converter | #1 Free Data Extraction Tool",

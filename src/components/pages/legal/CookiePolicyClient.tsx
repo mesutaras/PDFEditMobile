@@ -16,7 +16,7 @@ export default function CookiePolicyClient() {
       <div className="container mx-auto max-w-4xl">
         <LegalHeader
           title="Cookie Policy"
-          description="Learn how SimplyPDF use cookies and similar technologies."
+          description="Learn how PDFEditMobile use cookies and similar technologies."
           icon={Cookie}
         />
 
