@@ -21,8 +21,8 @@ export async function compressPDF(
     pdf.setAuthor("");
     pdf.setSubject("");
     pdf.setKeywords([]);
-    pdf.setProducer("SimplyPDF");
-    pdf.setCreator("SimplyPDF");
+    pdf.setProducer("PDFEditMobile");
+    pdf.setCreator("PDFEditMobile");
 
     // Remove structural tags and extra info if extreme
     if (level === "extreme") {

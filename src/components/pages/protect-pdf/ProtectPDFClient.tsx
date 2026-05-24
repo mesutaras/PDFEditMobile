@@ -544,7 +544,7 @@ export function ProtectPDFClient() {
             steps: [
               "Upload your document to our secure local workspace.",
               "Set your strong password and configure granular permissions like printing and copying.",
-              "SimplyPDF will encrypt your file using industry-standard protocols. Download the secured version instantly.",
+              "PDFEditMobile will encrypt your file using industry-standard protocols. Download the secured version instantly.",
             ],
           }}
           benefits={{
@@ -577,7 +577,7 @@ export function ProtectPDFClient() {
             {
               question: "What if I forget my password?",
               answer:
-                "Since SimplyPDF does not store your passwords, we cannot recover them. Please ensure you keep a safe record of your document passwords.",
+                "Since PDFEditMobile does not store your passwords, we cannot recover them. Please ensure you keep a safe record of your document passwords.",
             },
             {
               question: "Will the PDF work in all readers?",
