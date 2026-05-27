@@ -167,7 +167,7 @@ I'd love to hear your feedback or discuss potential collaborations!
 [![GitHub](https://skillicons.dev/icons?i=github)](https://github.com/ArshVermaGit)
 [![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/arshvermadev/)
 [![Twitter](https://skillicons.dev/icons?i=twitter)](https://x.com/TheArshVerma)
-[![Gmail](https://skillicons.dev/icons?i=gmail)](mailto:arshverma.dev@gmail.com)
+[![Gmail](https://skillicons.dev/icons?i=gmail)](mailto:info@pdfeditmobile.com
 
 </div>
 

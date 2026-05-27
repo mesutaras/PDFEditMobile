@@ -17,11 +17,11 @@ export const CTA = () => {
               I&apos;d love to build it for you. Request new tools and features
               at{" "}
               <span className="font-bold text-black">
-                arshverma.dev@gmail.com
+                info@pdfeditmobile.com@gmail.com
               </span>
             </p>
             <a
-              href="mailto:arshverma.dev@gmail.com?subject=Tool%20Request%20-%20PDFEditMobile"
+              href="mailto:info@pdfeditmobile.com?subject=Tool%20Request%20-%20PDFEditMobile"
               className="btn-primary inline-flex items-center gap-2 px-12 py-5 text-lg"
             >
               Request a Tool

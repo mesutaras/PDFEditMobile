@@ -75,7 +75,7 @@ export const AboutHero = () => {
 
         <div className="flex flex-col gap-4 sm:flex-row">
           <Link
-            href="https://arshcreates.vercel.app/"
+            href="https://pdfeditmobile.com/"
             target="_blank"
             className="btn-primary inline-flex items-center gap-2"
           >
@@ -83,7 +83,7 @@ export const AboutHero = () => {
             <ExternalLink className="h-4 w-4" />
           </Link>
           <Link
-            href="mailto:arshverma.dev@gmail.com"
+            href="mailto:info@pdfeditmobile.com"
             className="btn-secondary inline-flex items-center gap-2"
           >
             <Mail className="h-4 w-4" />

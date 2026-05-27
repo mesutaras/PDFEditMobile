@@ -26,15 +26,15 @@ const company = [
 ];
 
 const socials = [
-  { icon: Twitter, href: "https://x.com/TheArshVerma", label: "Twitter" },
+  { icon: Twitter, href: "", label: "Twitter" },
   {
     icon: Github,
-    href: "https://github.com/ArshVermaGit/PDFEditMobile",
+    href: "",
     label: "GitHub",
   },
   {
     icon: Linkedin,
-    href: "https://www.linkedin.com/in/arshvermadev/",
+    href: "",
     label: "LinkedIn",
   },
 ];
@@ -165,7 +165,7 @@ export default function Footer() {
             <div className="flex items-center gap-6">
               <span>© {currentYear} PDFEditMobile. All rights reserved.</span>
               <a
-                href="https://github.com/ArshVermaGit/PDFEditMobile"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors hover:text-white"

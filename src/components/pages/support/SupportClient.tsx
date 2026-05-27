@@ -18,7 +18,7 @@ const supportOptions = [
     title: "Email Support",
     description: "Get help from our team via email.",
     action: "Send Email",
-    href: "mailto:arshverma.dev@gmail.com",
+    href: "mailto:info@pdfeditmobile.com",
   },
   {
     icon: MessageCircle,
