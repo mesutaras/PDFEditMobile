@@ -17,7 +17,6 @@ const nextConfig: NextConfig = {
     resolveAlias: {
       fs: "./src/lib/empty-module.ts",
       path: "path-browserify",
-      crypto: "./src/lib/empty-module.ts",
     },
   },
 };
