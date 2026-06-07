@@ -223,14 +223,23 @@ export default function Header() {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="rounded-xl p-2 transition-colors hover:bg-gray-100 lg:hidden">
-            <div className="relative h-6 w-6">
-              <span className={`absolute left-0 h-0.5 w-6 bg-black transition-all duration-300 ${isMenuOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-1"}`} />
-              <span className={`absolute top-1/2 left-0 h-0.5 w-6 -translate-y-1/2 bg-black transition-all duration-300 ${isMenuOpen ? "opacity-0" : "opacity-100"}`} />
-              <span className={`absolute left-0 h-0.5 w-6 bg-black transition-all duration-300 ${isMenuOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-1"}`} />
-            </div>
-          </button>
+          {/* Mobile Language + Menu Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={() => setLang(lang === "tr" ? "en" : "tr")}
+              className="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-black hover:text-black hover:shadow-md"
+            >
+              <span className="text-base">{lang === "tr" ? "🇬🇧" : "🇹🇷"}</span>
+              <span>{lang === "tr" ? "EN" : "TR"}</span>
+            </button>
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="rounded-xl p-2 transition-colors hover:bg-gray-100">
+              <div className="relative h-6 w-6">
+                <span className={`absolute left-0 h-0.5 w-6 bg-black transition-all duration-300 ${isMenuOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-1"}`} />
+                <span className={`absolute top-1/2 left-0 h-0.5 w-6 -translate-y-1/2 bg-black transition-all duration-300 ${isMenuOpen ? "opacity-0" : "opacity-100"}`} />
+                <span className={`absolute left-0 h-0.5 w-6 bg-black transition-all duration-300 ${isMenuOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-1"}`} />
+              </div>
+            </button>
+          </div>
         </div>
       </nav>
 
