@@ -34,11 +34,13 @@ import {
 } from "@/components/ui/ToolPageElements";
 import { EducationalContent } from "@/components/layout/EducationalContent";
 import { useHistory } from "@/context/HistoryContext";
+import { useI18n } from "@/lib/i18n";
 
 type SignatureMode = "draw" | "type" | "upload";
 
 export function SignPDFClient() {
   const { addToHistory } = useHistory();
+  const { t } = useI18n();
   const [file, setFile] = useState<File | null>(null);
   const [signatureMode, setSignatureMode] = useState<SignatureMode>("draw");
   const [signatureText, setSignatureText] = useState("");
@@ -452,8 +454,8 @@ export function SignPDFClient() {
               className="mx-auto max-w-4xl"
             >
               <ToolHeader
-                title="Sign PDF"
-                description="Securely sign your documents with a professional digital signature."
+                title={t("sign_title")}
+                description={t("sign_desc")}
                 icon={FileSignature}
               />
 
@@ -476,8 +478,8 @@ export function SignPDFClient() {
                     onChange={handleFileChange}
                   />
                   <Upload className="mb-4 h-12 w-12 text-gray-400" />
-                  <p className="mb-2 text-lg font-medium">Drop your PDF here</p>
-                  <p className="text-sm text-gray-400">or click to browse</p>
+                  <p className="mb-2 text-lg font-medium">{t("compress_drop")}</p>
+                  <p className="text-sm text-gray-400">{t("compress_browse")}</p>
                 </div>
               </ToolCard>
             </motion.div>
@@ -485,8 +487,8 @@ export function SignPDFClient() {
 
           {status === "loading" && (
             <ProcessingState
-              message="Loading PDF..."
-              description="Initializing signature workspace..."
+              message={t("sign_loading")}
+              description={t("sign_loading_desc")}
             />
           )}
 
@@ -521,7 +523,7 @@ export function SignPDFClient() {
                         onClick={reset}
                         className="btn-outline flex-1 rounded-2xl px-8 py-4 font-bold md:flex-none"
                       >
-                        Cancel
+                        {t("sign_cancel")}
                       </button>
                       <button
                         onClick={handleApplySignature}
@@ -529,7 +531,7 @@ export function SignPDFClient() {
                         className="btn-primary group flex flex-2 items-center justify-center gap-2 rounded-2xl px-10 py-4 shadow-xl shadow-black/10 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 md:flex-none"
                       >
                         <FileSignature className="h-5 w-5 transition-transform group-hover:rotate-12" />
-                        <span className="font-bold">Apply & Finish</span>
+                        <span className="font-bold">{t("sign_apply")}</span>
                         <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                       </button>
                     </div>
@@ -540,14 +542,14 @@ export function SignPDFClient() {
                 <div className="space-y-6 lg:col-span-5">
                   <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-xl">
                     <h3 className="mb-8 text-xl font-bold text-gray-900">
-                      Create Signature
+                      {t("sign_create")}
                     </h3>
 
                     <div className="mb-8 flex rounded-2xl bg-gray-100 p-1">
-                      {[
-                        { id: "draw", icon: Pencil, label: "Draw" },
-                        { id: "type", icon: Type, label: "Type" },
-                        { id: "upload", icon: ImageIcon, label: "Upload" },
+                          {[
+                        { id: "draw", icon: Pencil, label: t("sign_mode_draw") },
+                        { id: "type", icon: Type, label: t("sign_mode_type") },
+                        { id: "upload", icon: ImageIcon, label: t("sign_mode_upload") },
                       ].map((mode) => (
                         <button
                           key={mode.id}
@@ -585,7 +587,7 @@ export function SignPDFClient() {
                             />
                             {!hasDrawn && (
                               <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-xs font-bold tracking-widest text-gray-300 uppercase">
-                                Draw here
+                                {t("sign_draw_here")}
                               </div>
                             )}
                           </div>
@@ -593,7 +595,7 @@ export function SignPDFClient() {
                             onClick={clearCanvas}
                             className="mt-4 flex items-center justify-center gap-2 text-[10px] font-bold tracking-widest text-gray-400 uppercase transition-colors hover:text-red-500"
                           >
-                            <Trash2 className="h-3 w-3" /> Clear Canvas
+                            <Trash2 className="h-3 w-3" /> {t("sign_clear_canvas")}
                           </button>
                         </div>
                       )}
@@ -604,11 +606,11 @@ export function SignPDFClient() {
                             type="text"
                             value={signatureText}
                             onChange={(e) => setSignatureText(e.target.value)}
-                            placeholder="Enter your name"
+                            placeholder={t("sign_enter_name")}
                             className="w-full rounded-2xl border border-gray-100 bg-gray-50 px-6 py-6 font-serif text-3xl italic transition-all focus:border-black"
                           />
                           <p className="text-center text-[10px] font-bold tracking-widest text-gray-400 uppercase">
-                            Type to see your cursive signature
+                            {t("sign_type_hint")}
                           </p>
                         </div>
                       )}
@@ -635,7 +637,7 @@ export function SignPDFClient() {
                             <label className="group flex aspect-video flex-1 cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-gray-100 transition-all hover:border-black">
                               <ImageIcon className="mb-2 h-8 w-8 text-gray-300 transition-colors group-hover:text-black" />
                               <span className="text-[10px] font-bold tracking-widest text-gray-400 uppercase group-hover:text-black">
-                                Upload signature image
+                                {t("sign_upload_hint")}
                               </span>
                               <input
                                 type="file"
@@ -652,19 +654,18 @@ export function SignPDFClient() {
 
                   <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-xl">
                     <h3 className="mb-8 text-xl font-bold text-gray-900">
-                      Professional Styling
+                      {t("sign_styling")}
                     </h3>
                     <div className="space-y-6">
-                      {/* Color Selection */}
                       <div className="space-y-3">
                         <label className="px-1 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
-                          Signature Color
+                          {t("sign_color")}
                         </label>
                         <div className="flex gap-3">
                           {[
-                            { label: "Onyx Black", color: "#000000" },
-                            { label: "Royal Blue", color: "#003399" },
-                            { label: "Deep Red", color: "#990000" },
+                            { label: t("sign_color_black"), color: "#000000" },
+                            { label: t("sign_color_blue"), color: "#003399" },
+                            { label: t("sign_color_red"), color: "#990000" },
                           ].map((c) => (
                             <button
                               key={c.color}
@@ -681,7 +682,7 @@ export function SignPDFClient() {
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <label className="px-1 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
-                            Opacity
+                            {t("sign_opacity")}
                           </label>
                           <input
                             type="range"
@@ -696,7 +697,7 @@ export function SignPDFClient() {
                         </div>
                         <div className="space-y-2">
                           <label className="px-1 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
-                            Rotation
+                            {t("sign_rotation")}
                           </label>
                           <input
                             type="range"
@@ -715,14 +716,14 @@ export function SignPDFClient() {
 
                   <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-xl">
                     <h3 className="mb-8 text-xl font-bold text-gray-900">
-                      Target Pages
+                      {t("sign_target_pages")}
                     </h3>
                     <div className="space-y-4">
                       <div className="flex rounded-2xl bg-gray-100 p-1">
                         {[
-                          { id: "current", label: "Current" },
-                          { id: "all", label: "Apply All" },
-                          { id: "range", label: "Range" },
+                          { id: "current", label: t("sign_target_current") },
+                          { id: "all", label: t("sign_target_all") },
+                          { id: "range", label: t("sign_target_range") },
                         ].map((t) => (
                           <button
                             key={t.id}
@@ -752,22 +753,22 @@ export function SignPDFClient() {
                   <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-xl">
                     <div className="mb-8 flex items-center justify-between">
                       <h3 className="text-xl font-bold text-gray-900">
-                        Workspace
+                        {t("sign_workspace")}
                       </h3>
                       <button
                         onClick={() => setShowGrid(!showGrid)}
                         className={`rounded-xl px-3 py-1.5 text-[10px] font-bold tracking-widest uppercase transition-all ${showGrid ? "bg-black text-white" : "bg-gray-100 text-gray-500 hover:text-black"}`}
                       >
-                        {showGrid ? "Grid On" : "Grid Off"}
+                        {showGrid ? t("sign_grid_on") : t("sign_grid_off")}
                       </button>
                     </div>
                     <p className="mb-6 text-xs leading-relaxed text-gray-500">
-                      Signature will be placed at:
+                      {t("sign_placed_at")}
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="rounded-2xl border border-gray-100 bg-gray-50 p-4">
                         <p className="mb-1 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
-                          X-Pos
+                          {t("sign_xpos")}
                         </p>
                         <p className="font-bold">
                           {Math.round(signaturePosition.x)}%
@@ -775,7 +776,7 @@ export function SignPDFClient() {
                       </div>
                       <div className="rounded-2xl border border-gray-100 bg-gray-50 p-4">
                         <p className="mb-1 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
-                          Y-Pos
+                          {t("sign_ypos")}
                         </p>
                         <p className="font-bold">
                           {Math.round(signaturePosition.y)}%
@@ -790,7 +791,7 @@ export function SignPDFClient() {
                   <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-xl">
                     <div className="mb-8 flex items-center justify-between">
                       <h3 className="text-[10px] font-bold tracking-widest text-gray-400 uppercase">
-                        Document Workspace
+                        {t("sign_doc_workspace")}
                       </h3>
                       <div className="flex items-center gap-4 rounded-xl bg-gray-100 px-3 py-1.5">
                         <button
@@ -803,7 +804,7 @@ export function SignPDFClient() {
                           <ChevronLeft className="h-4 w-4" />
                         </button>
                         <span className="min-w-[80px] text-center text-xs font-bold text-gray-900">
-                          Page {currentPage + 1} / {totalPages}
+                          {t("sign_page")} {currentPage + 1} / {totalPages}
                         </span>
                         <button
                           onClick={() =>
@@ -916,12 +917,12 @@ export function SignPDFClient() {
                                   }}
                                 >
                                   {isDragging
-                                    ? "Moving..."
+                                    ? t("sign_moving")
                                     : isRotating
-                                      ? "Rotating..."
+                                      ? t("sign_rotating")
                                       : isResizing
-                                        ? "Scaling..."
-                                        : "Signature"}
+                                        ? t("sign_scaling")
+                                        : t("sign_signature_label")}
                                 </div>
                               )}
                             </div>
@@ -979,7 +980,7 @@ export function SignPDFClient() {
 
                   <div className="mx-auto mt-8 max-w-sm">
                     <label className="mb-2 block px-1 text-center text-[10px] font-bold tracking-widest text-gray-400 uppercase">
-                      Output Filename
+                      {t("sign_output_filename")}
                     </label>
                     <input
                       type="text"
@@ -995,8 +996,8 @@ export function SignPDFClient() {
 
           {status === "processing" && (
             <ProcessingState
-              message="Embedding signature..."
-              description="Finalizing cryptographic verification layers..."
+              message={t("sign_processing")}
+              description={t("sign_processing_desc")}
             />
           )}
 
@@ -1016,11 +1017,10 @@ export function SignPDFClient() {
                   <FileSignature className="h-10 w-10" />
                 </motion.div>
                 <h2 className="mb-2 text-4xl font-black text-gray-900">
-                  PDF Successfully Signed!
+                  {t("sign_success")}
                 </h2>
                 <p className="text-lg font-medium text-gray-500">
-                  Your document is now professionaly signed and ready for
-                  sharing.
+                  {t("sign_success_desc")}
                 </p>
               </div>
 
@@ -1032,10 +1032,10 @@ export function SignPDFClient() {
                     </div>
                     <div>
                       <p className="font-bold text-gray-900">
-                        Digital Signature Embedded
+                        {t("sign_embedded")}
                       </p>
                       <p className="text-xs font-medium text-emerald-700">
-                        Added to page {currentPage + 1} of your document
+                        {t("sign_embedded_desc")} {currentPage + 1}
                       </p>
                     </div>
                   </div>
@@ -1046,14 +1046,14 @@ export function SignPDFClient() {
                       className="btn-primary group flex w-full items-center justify-center gap-3 rounded-2xl py-5 text-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <Download className="h-6 w-6 transition-transform group-hover:translate-y-0.5" />
-                      <span className="font-bold">Download Signed PDF</span>
+                      <span className="font-bold">{t("sign_download_btn")}</span>
                     </button>
                     <button
                       onClick={reset}
                       className="btn-outline flex w-full items-center justify-center gap-3 rounded-2xl py-5 text-lg transition-all"
                     >
                       <RefreshCw className="h-5 w-5" />
-                      Sign New
+                      {t("sign_new")}
                     </button>
                   </div>
                 </div>
@@ -1071,7 +1071,7 @@ export function SignPDFClient() {
               <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-red-100 text-red-600">
                 <AlertCircle className="h-10 w-10" />
               </div>
-              <h2 className="mb-2 text-3xl font-bold">Signing failed</h2>
+              <h2 className="mb-2 text-3xl font-bold">{t("sign_error_title")}</h2>
               <p className="mb-10 text-gray-500">{errorMessage}</p>
 
               <button
@@ -1079,7 +1079,7 @@ export function SignPDFClient() {
                 className="btn-primary flex items-center gap-2 px-10 py-4"
               >
                 <RefreshCw className="h-5 w-5" />
-                Try Again
+                {t("common_error_retry")}
               </button>
             </motion.div>
           )}
@@ -1087,33 +1087,16 @@ export function SignPDFClient() {
 
         <EducationalContent
           howItWorks={{
-            title: "How to Sign PDF",
-            steps: [
-              "Upload your document to our secure browser-side canvas.",
-              "Create your signature by drawing, typing your name, or uploading a professional scan.",
-              "Position your signature exactly where it needs to be using our live document markers.",
-              "Download your perfectly signed PDF. All processing is 100% private and stays in your browser.",
-            ],
+            title: t("sign_how_title"),
+            steps: [t("sign_how_step1"), t("sign_how_step2"), t("sign_how_step3"), t("sign_how_step4")],
           }}
           benefits={{
-            title: "Enterprise Digital Signatures",
+            title: t("sign_benefits_title"),
             items: [
-              {
-                title: "Multiple Modes",
-                desc: "Choose your professional style: Draw by hand, type in cursive, or upload a scanned PNG.",
-              },
-              {
-                title: "Privacy Guaranteed",
-                desc: "Your document and your signature never leave your device. PDFEditMobile is a local tool.",
-              },
-              {
-                title: "Visual Precision",
-                desc: "Precisely place your signature anywhere on the document with our live-refresh markers.",
-              },
-              {
-                title: "Universal Compatibility",
-                desc: "Our signed PDFs are recognized by all major standard PDF readers like Adobe Acrobat and Chrome.",
-              },
+              { title: t("sign_benefit1_title"), desc: t("sign_benefit1_desc") },
+              { title: t("sign_benefit2_title"), desc: t("sign_benefit2_desc") },
+              { title: t("sign_benefit3_title"), desc: t("sign_benefit3_desc") },
+              { title: t("sign_benefit4_title"), desc: t("sign_benefit4_desc") },
             ],
           }}
           faqs={[
