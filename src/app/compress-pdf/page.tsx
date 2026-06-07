@@ -2,22 +2,22 @@ import { Metadata } from "next";
 import { CompressPDFClient } from "@/components/pages/compress-pdf/CompressPDFClient";
 
 export const metadata: Metadata = {
-  title: "Compress PDF Online | Reduce PDF File Size Free",
+  title: "PDF Sıkıştır | PDF Dosya Boyutunu Ücretsiz Küçült",
   description:
-    "Shrink your PDF files without losing quality. Our online compressor significantly reduces file size for easier sharing and storage. 100% free and private.",
+    "PDF dosyalarınızı kaliteden ödün vermeden küçültün. Çevrimiçi sıkıştırıcımız, daha kolay paylaşım ve depolama için dosya boyutunu önemli ölçüde azaltır. %100 ücretsiz ve gizli.",
   keywords: [
-    "Compress PDF",
-    "Reduce PDF Size",
-    "Shrink PDF",
-    "Small PDF",
-    "Free Online Compressor",
+    "PDF Sıkıştır",
+    "PDF Boyutu Azalt",
+    "PDF Küçült",
+    "Küçük PDF",
+    "Ücretsiz Çevrimiçi Sıkıştırıcı",
     "PDFEditMobile",
   ],
   openGraph: {
-    title: "Compress PDF Online | #1 Free PDF Compressor",
+    title: "PDF Sıkıştır | #1 Ücretsiz PDF Sıkıştırıcı",
     description:
-      "Reduce the size of your PDFs while maintaining top quality. Free and secure.",
-    url: "https://simplypdf.vercel.app/compress-pdf",
+      "En yüksek kaliteyi korurken PDF'lerinizin boyutunu azaltın. Ücretsiz ve güvenli.",
+    url: "https://pdfeditmobile.vercel.app/compress-pdf",
   },
 };
 

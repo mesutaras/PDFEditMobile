@@ -2,22 +2,22 @@ import { Metadata } from "next";
 import { MergePDFClient } from "@/components/pages/merge-pdf/MergePDFClient";
 
 export const metadata: Metadata = {
-  title: "Merge PDF Online | Combine PDF Files for Free",
+  title: "PDF Birleştir | Birden Fazla PDF'i Tek Dosyada Birleştir",
   description:
-    "The easiest way to merge PDF files. Simply drag and drop your files and combine them into a single high-quality PDF document. 100% private and secure processing in your browser.",
+    "Birden fazla PDF dosyasını hızlı ve kolay bir şekilde tek bir belgede birleştirin. Sayfaları sürükleyip bırakarak yeniden sıralayın, döndürün veya silin. %100 ücretsiz, gizli ve güvenli.",
   keywords: [
-    "Merge PDF",
-    "Combine PDF",
-    "Join PDF",
-    "Free PDF Merger",
-    "Merge PDF Online",
+    "PDF Birleştir",
+    "PDF Birleştirici",
+    "PDF'leri Birleştir",
+    "Ücretsiz PDF Birleştirme",
+    "PDF Düzenle",
     "PDFEditMobile",
   ],
   openGraph: {
-    title: "Merge PDF Online | #1 Free PDF Merger",
+    title: "PDF Birleştir | #1 Ücretsiz PDF Birleştirme Aracı",
     description:
-      "Combine multiple PDFs into one document easily. Fast, free, and secure.",
-    url: "https://simplypdf.vercel.app/merge-pdf",
+      "PDF'lerinizi saniyeler içinde birleştirin. Hızlı, ücretsiz ve %100 gizli.",
+    url: "https://pdfeditmobile.vercel.app/merge-pdf",
   },
 };
 
