@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import SignInModal from "@/components/auth/SignInModal";
@@ -8,72 +8,47 @@ import Image from "next/image";
 import { useAuth } from "@/context/AuthProvider";
 import { useI18n } from "@/lib/i18n";
 import {
-  Merge,
-  Split,
-  Minimize2,
-  RotateCw,
-  FileImage,
-  Lock,
-  Unlock,
-  Layers,
-  Stamp,
-  FileSignature,
-  Type,
-  ScanLine,
-  FileText,
-  FileUp,
-  FileDown,
-  ChevronDown,
-  History,
-  LogOut,
-  User,
-  Wrench,
-  LogIn,
-  PlusCircle,
-  Globe,
-  BookOpen,
-  ImagePlus,
-  Table as TableIcon,
-  Presentation,
-  Scissors,
-  Trash2,
-  GripVertical,
-  Copy,
+  Merge, Split, Minimize2, RotateCw, FileImage, Lock, Unlock,
+  Layers, Stamp, FileSignature, Type, ScanLine, FileText, FileUp,
+  FileDown, ChevronDown, History, LogOut, User, Wrench, LogIn,
+  PlusCircle, Globe, BookOpen, ImagePlus,
+  Table as TableIcon, Presentation,
+  Scissors, Trash2, GripVertical, Copy,
 } from "lucide-react";
 
-const tools = [
-  { title: "Merge", icon: Merge, href: "/merge-pdf" },
-  { title: "Split", icon: Split, href: "/split-pdf" },
-  { title: "Compress", icon: Minimize2, href: "/compress-pdf" },
-  { title: "Extract", icon: Scissors, href: "/extract-pages" },
-  { title: "Delete", icon: Trash2, href: "/delete-pages" },
-  { title: "Reorder", icon: GripVertical, href: "/reorder-pages" },
-  { title: "Rotate", icon: RotateCw, href: "/rotate-pdf" },
-  { title: "Duplicate", icon: Copy, href: "/duplicate-pages" },
-  { title: "Insert", icon: PlusCircle, href: "/insert-pages" },
-  { title: "JPG to PDF", icon: ImagePlus, href: "/jpg-to-pdf" },
-  { title: "PDF to JPG", icon: FileImage, href: "/pdf-to-jpg" },
-  { title: "Word to PDF", icon: FileUp, href: "/word-to-pdf" },
-  { title: "PDF to Word", icon: FileText, href: "/pdf-to-word" },
-  { title: "Excel to PDF", icon: TableIcon, href: "/excel-to-pdf" },
-  { title: "PDF to Excel", icon: FileDown, href: "/pdf-to-excel" },
-  { title: "PPT to PDF", icon: Presentation, href: "/powerpoint-to-pdf" },
-  { title: "PDF to PPT", icon: Presentation, href: "/pdf-to-powerpoint" },
-  { title: "Web to PDF", icon: Globe, href: "/html-to-pdf" },
-  { title: "PDF to HTML", icon: Globe, href: "/pdf-to-html" },
-  { title: "Text to PDF", icon: FileText, href: "/text-to-pdf" },
-  { title: "PDF to Text", icon: FileText, href: "/pdf-to-text" },
-  { title: "EPUB to PDF", icon: BookOpen, href: "/epub-to-pdf" },
-  { title: "PDF to EPUB", icon: BookOpen, href: "/pdf-to-epub" },
-  { title: "Unlock", icon: Unlock, href: "/unlock-pdf" },
-  { title: "Protect", icon: Lock, href: "/protect-pdf" },
-  { title: "Organize", icon: Layers, href: "/organize-pdf" },
-  { title: "Watermark", icon: Stamp, href: "/watermark-pdf" },
-  { title: "Sign", icon: FileSignature, href: "/sign-pdf" },
-  { title: "Edit", icon: Type, href: "/edit-pdf" },
-  { title: "OCR", icon: ScanLine, href: "/ocr-pdf" },
-  { title: "Repair", icon: Wrench, href: "/repair-pdf" },
-  { title: "Metadata", icon: FileText, href: "/edit-metadata" },
+const headerTools = [
+  { key: "header_merge", icon: Merge, href: "/merge-pdf" },
+  { key: "header_split", icon: Split, href: "/split-pdf" },
+  { key: "header_compress", icon: Minimize2, href: "/compress-pdf" },
+  { key: "header_extract", icon: Scissors, href: "/extract-pages" },
+  { key: "header_delete", icon: Trash2, href: "/delete-pages" },
+  { key: "header_reorder", icon: GripVertical, href: "/reorder-pages" },
+  { key: "header_rotate", icon: RotateCw, href: "/rotate-pdf" },
+  { key: "header_duplicate", icon: Copy, href: "/duplicate-pages" },
+  { key: "header_insert", icon: PlusCircle, href: "/insert-pages" },
+  { key: "header_jpg_to_pdf", icon: ImagePlus, href: "/jpg-to-pdf" },
+  { key: "header_pdf_to_jpg", icon: FileImage, href: "/pdf-to-jpg" },
+  { key: "header_word_to_pdf", icon: FileUp, href: "/word-to-pdf" },
+  { key: "header_pdf_to_word", icon: FileText, href: "/pdf-to-word" },
+  { key: "header_excel_to_pdf", icon: TableIcon, href: "/excel-to-pdf" },
+  { key: "header_pdf_to_excel", icon: FileDown, href: "/pdf-to-excel" },
+  { key: "header_ppt_to_pdf", icon: Presentation, href: "/powerpoint-to-pdf" },
+  { key: "header_pdf_to_ppt", icon: Presentation, href: "/pdf-to-powerpoint" },
+  { key: "header_web_to_pdf", icon: Globe, href: "/html-to-pdf" },
+  { key: "header_pdf_to_html", icon: Globe, href: "/pdf-to-html" },
+  { key: "header_text_to_pdf", icon: FileText, href: "/text-to-pdf" },
+  { key: "header_pdf_to_text", icon: FileText, href: "/pdf-to-text" },
+  { key: "header_epub_to_pdf", icon: BookOpen, href: "/epub-to-pdf" },
+  { key: "header_pdf_to_epub", icon: BookOpen, href: "/pdf-to-epub" },
+  { key: "header_unlock", icon: Unlock, href: "/unlock-pdf" },
+  { key: "header_protect", icon: Lock, href: "/protect-pdf" },
+  { key: "header_organize", icon: Layers, href: "/organize-pdf" },
+  { key: "header_watermark", icon: Stamp, href: "/watermark-pdf" },
+  { key: "header_sign", icon: FileSignature, href: "/sign-pdf" },
+  { key: "header_edit", icon: Type, href: "/edit-pdf" },
+  { key: "header_ocr", icon: ScanLine, href: "/ocr-pdf" },
+  { key: "header_repair", icon: Wrench, href: "/repair-pdf" },
+  { key: "header_metadata", icon: FileText, href: "/edit-metadata" },
 ];
 
 export default function Header() {
@@ -85,6 +60,14 @@ export default function Header() {
   const userMenuRef = useRef<HTMLDivElement>(null);
   const { user, logout, isLoading } = useAuth();
   const { t, lang, setLang } = useI18n();
+
+  // 📖 Öğrenme Notu: t() hook'u sadece bileşen içinde çalışır.
+  // Bu yüzden tools dizisini dışarıda key ile tanımlayıp,
+  // içeride useMemo ile t() uyguluyoruz.
+  const tools = useMemo(() => headerTools.map((tDef) => ({
+    ...tDef,
+    title: t(tDef.key),
+  })), [t]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -151,7 +134,7 @@ export default function Header() {
                   >
                     <div className="grid w-[640px] grid-cols-3 gap-2 rounded-2xl border border-gray-100 bg-white p-4 shadow-2xl">
                       {tools.map((tool) => (
-                        <Link key={tool.href} href={tool.href} className="group flex items-center gap-3 rounded-xl p-3 transition-colors hover:bg-gray-50">
+                        <Link key={tool.key} href={tool.href} className="group flex items-center gap-3 rounded-xl p-3 transition-colors hover:bg-gray-50">
                           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 transition-all group-hover:bg-black group-hover:text-white">
                             <tool.icon className="h-5 w-5" />
                           </div>
@@ -301,7 +284,7 @@ export default function Header() {
               )}
               <div className="grid grid-cols-2 gap-3">
                 {tools.map((tool) => (
-                  <Link key={tool.href} href={tool.href} onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 rounded-xl bg-gray-50 p-3 transition-colors hover:bg-gray-100">
+                  <Link key={tool.key} href={tool.href} onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 rounded-xl bg-gray-50 p-3 transition-colors hover:bg-gray-100">
                     <tool.icon className="h-5 w-5" />
                     <span className="text-sm font-medium">{tool.title}</span>
                   </Link>
