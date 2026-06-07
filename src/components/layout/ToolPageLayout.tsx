@@ -19,6 +19,7 @@ import {
   ProcessingState,
 } from "../ui/ToolPageElements";
 import { useHistory } from "@/context/HistoryContext";
+import { useI18n } from "@/lib/i18n";
 
 interface ToolPageLayoutProps {
   title: string;
@@ -93,6 +94,7 @@ export function ToolPageLayout({
   faqs,
 }: ToolPageLayoutProps) {
   const { addToHistory } = useHistory();
+  const { t } = useI18n();
   const [files, setFiles] = useState<File[]>([]);
   const [status, setStatus] = useState<
     "idle" | "processing" | "success" | "error"
@@ -235,32 +237,20 @@ export function ToolPageLayout({
                 className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3"
               >
                 {[
-                  {
-                    icon: "🔒",
-                    label: "100% Private",
-                    desc: "Files never leave your device",
-                  },
-                  {
-                    icon: "⚡",
-                    label: "Lightning Fast",
-                    desc: "Instant local processing",
-                  },
-                  {
-                    icon: "✨",
-                    label: "Completely Free",
-                    desc: "No hidden fees or limits",
-                  },
+                  { icon: "🔒", labelKey: "tool_feature_private", descKey: "tool_feature_private_desc" },
+                  { icon: "⚡", labelKey: "tool_feature_fast", descKey: "tool_feature_fast_desc" },
+                  { icon: "✨", labelKey: "tool_feature_free", descKey: "tool_feature_free_desc" },
                 ].map((feature) => (
                   <motion.div
-                    key={feature.label}
+                    key={feature.labelKey}
                     className="group relative rounded-2xl border border-gray-100 bg-linear-to-b from-gray-50 to-white p-6 transition-all duration-500 hover:border-gray-200 hover:shadow-xl hover:shadow-gray-100/50"
                     whileHover={{ y: -5 }}
                   >
                     <span className="mb-3 block text-2xl">{feature.icon}</span>
                     <div className="mb-1 text-lg font-semibold">
-                      {feature.label}
+                      {t(feature.labelKey)}
                     </div>
-                    <div className="text-sm text-gray-500">{feature.desc}</div>
+                    <div className="text-sm text-gray-500">{t(feature.descKey)}</div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -270,7 +260,7 @@ export function ToolPageLayout({
           {status === "processing" && (
             <ProcessingState
               title={processingText}
-              description="This won't take long..."
+              description={t("tool_processing_desc")}
             />
           )}
 
@@ -334,7 +324,7 @@ export function ToolPageLayout({
                   whileTap={{ scale: 0.97 }}
                 >
                   <Download className="h-5 w-5" />
-                  Download File
+                  {t("tool_download")}
                 </motion.button>
                 <motion.button
                   onClick={reset}
@@ -343,7 +333,7 @@ export function ToolPageLayout({
                   whileTap={{ scale: 0.97 }}
                 >
                   <RefreshCw className="h-5 w-5" />
-                  Process Another
+                  {t("tool_process_another")}
                 </motion.button>
               </motion.div>
             </motion.div>
@@ -364,7 +354,7 @@ export function ToolPageLayout({
               >
                 <AlertCircle className="h-12 w-12" />
               </motion.div>
-              <h2 className="mb-3 text-3xl font-bold">Something went wrong</h2>
+              <h2 className="mb-3 text-3xl font-bold">{t("common_error")}</h2>
               <p className="mb-10 text-lg text-gray-500">{errorMessage}</p>
 
               <motion.button
@@ -374,7 +364,7 @@ export function ToolPageLayout({
                 whileTap={{ scale: 0.97 }}
               >
                 <RefreshCw className="h-5 w-5" />
-                Try Again
+                {t("common_error_retry")}
               </motion.button>
             </motion.div>
           )}

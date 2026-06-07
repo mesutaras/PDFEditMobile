@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 interface FAQSearchProps {
   searchQuery: string;
@@ -9,6 +10,8 @@ interface FAQSearchProps {
 }
 
 export const FAQSearch = ({ searchQuery, setSearchQuery }: FAQSearchProps) => {
+  const { t } = useI18n();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -20,7 +23,7 @@ export const FAQSearch = ({ searchQuery, setSearchQuery }: FAQSearchProps) => {
         <Search className="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
         <input
           type="text"
-          placeholder="Search questions..."
+          placeholder={t("faq_search_placeholder")}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full rounded-2xl border border-gray-200 bg-white py-4 pr-4 pl-12 text-lg transition-all focus:ring-2 focus:ring-black focus:outline-none"

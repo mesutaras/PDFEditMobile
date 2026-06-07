@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { contactFaqs } from "@/lib/constants";
+import { useI18n } from "@/lib/i18n";
 
 export const ContactFAQ = () => {
+  const { t } = useI18n();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -11,7 +14,7 @@ export const ContactFAQ = () => {
       transition={{ delay: 0.5 }}
       className="mt-20"
     >
-      <h2 className="mb-8 text-center text-2xl font-bold">Common Questions</h2>
+      <h2 className="mb-8 text-center text-2xl font-bold">{t("contact_common_questions")}</h2>
       <div className="grid gap-6 md:grid-cols-3">
         {contactFaqs.map((faq, index) => (
           <motion.div

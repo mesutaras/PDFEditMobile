@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
+import { useI18n } from "@/lib/i18n";
 
 interface FAQItem {
   question: string;
@@ -26,6 +27,8 @@ export const FAQCategories = ({
   openItems,
   toggleItem,
 }: FAQCategoriesProps) => {
+  const { t } = useI18n();
+
   if (filteredCategories.length === 0) {
     return (
       <motion.div
@@ -34,8 +37,8 @@ export const FAQCategories = ({
         className="rounded-2xl bg-gray-50 py-16 text-center"
       >
         <Search className="mx-auto mb-4 h-12 w-12 text-gray-300" />
-        <h3 className="mb-2 text-xl font-bold">No results found</h3>
-        <p className="text-gray-500">Try searching with different keywords</p>
+        <h3 className="mb-2 text-xl font-bold">{t("faq_no_results")}</h3>
+        <p className="text-gray-500">{t("faq_no_results_hint")}</p>
       </motion.div>
     );
   }
@@ -55,9 +58,9 @@ export const FAQCategories = ({
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-black text-white">
               <category.icon className="h-5 w-5" />
             </div>
-            <h2 className="text-xl font-bold">{category.title}</h2>
+            <h2 className="text-xl font-bold">{t(category.title)}</h2>
             <span className="ml-auto text-sm text-gray-400">
-              {category.faqs.length} questions
+              {category.faqs.length} {t("faq_questions_count")}
             </span>
           </div>
           <div className="px-6">

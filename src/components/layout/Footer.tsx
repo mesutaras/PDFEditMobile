@@ -3,51 +3,44 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Github, Twitter, Linkedin, ArrowUpRight } from "lucide-react";
-
-const product = [
-  { title: "Features", href: "/features" },
-  { title: "How It Works", href: "/how-it-works" },
-];
-
-const legal = [
-  { title: "Privacy Policy", href: "/privacy" },
-  { title: "Terms of Service", href: "/terms" },
-  { title: "Disclaimer", href: "/disclaimer" },
-  { title: "Cookie Policy", href: "/cookie-policy" },
-];
-
-const company = [
-  { title: "About Us", href: "/about" },
-  { title: "Contact", href: "/contact" },
-  { title: "Support", href: "/support" },
-  { title: "FAQ", href: "/faq" },
-  { title: "Changelog", href: "/changelog" },
-  { title: "Sitemap", href: "/all-tools" },
-];
+import { useI18n } from "@/lib/i18n";
 
 const socials = [
   { icon: Twitter, href: "", label: "Twitter" },
-  {
-    icon: Github,
-    href: "",
-    label: "GitHub",
-  },
-  {
-    icon: Linkedin,
-    href: "",
-    label: "LinkedIn",
-  },
+  { icon: Github, href: "", label: "GitHub" },
+  { icon: Linkedin, href: "", label: "LinkedIn" },
 ];
+
+const footerLinks = {
+  product: [
+    { key: "footer_features", href: "/features" },
+    { key: "footer_how_it_works", href: "/how-it-works" },
+  ],
+  legal: [
+    { key: "footer_privacy", href: "/privacy" },
+    { key: "footer_terms", href: "/terms" },
+    { key: "footer_disclaimer", href: "/disclaimer" },
+    { key: "footer_cookie_policy", href: "/cookie-policy" },
+  ],
+  company: [
+    { key: "footer_about", href: "/about" },
+    { key: "footer_contact", href: "/contact" },
+    { key: "footer_support", href: "/support" },
+    { key: "footer_faq", href: "/faq" },
+    { key: "footer_changelog", href: "/changelog" },
+    { key: "footer_sitemap", href: "/all-tools" },
+  ],
+};
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useI18n();
 
   return (
     <footer className="bg-gray-950 text-white">
-      {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand Column */}
+          {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="group mb-6 flex items-center gap-2">
               <div className="relative h-10 w-10 transition-transform group-hover:scale-110 group-hover:rotate-3">
@@ -63,11 +56,8 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mb-6 text-sm leading-relaxed text-gray-400">
-              Free online PDF tools for everyone. Process files securely in your
-              browser — your files never leave your device.
+              {t("footer_tagline")}
             </p>
-
-            {/* Social Links */}
             <div className="flex items-center gap-3">
               {socials.map((social) => (
                 <a
@@ -82,19 +72,19 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Product Column */}
+          {/* Product */}
           <div>
             <h4 className="mb-6 text-sm font-semibold tracking-wider text-gray-400 uppercase">
-              Product
+              {t("footer_product")}
             </h4>
             <ul className="space-y-3">
-              {product.map((item) => (
+              {footerLinks.product.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     className="group inline-flex items-center gap-1 text-sm text-gray-300 transition-colors hover:text-white"
                   >
-                    {item.title}
+                    {t(item.key)}
                     <ArrowUpRight className="h-3 w-3 translate-x-1 -translate-y-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
                   </Link>
                 </li>
@@ -102,38 +92,38 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal Column */}
+          {/* Legal */}
           <div>
             <h4 className="mb-6 text-sm font-semibold tracking-wider text-gray-400 uppercase">
-              Legal
+              {t("footer_legal")}
             </h4>
             <ul className="space-y-3">
-              {legal.map((item) => (
+              {footerLinks.legal.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     className="text-sm text-gray-300 transition-colors hover:text-white"
                   >
-                    {item.title}
+                    {t(item.key)}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Company Column */}
+          {/* Company */}
           <div>
             <h4 className="mb-6 text-sm font-semibold tracking-wider text-gray-400 uppercase">
-              Company
+              {t("footer_company")}
             </h4>
             <ul className="space-y-3">
-              {company.map((item) => (
+              {footerLinks.company.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     className="text-sm text-gray-300 transition-colors hover:text-white"
                   >
-                    {item.title}
+                    {t(item.key)}
                   </Link>
                 </li>
               ))}
@@ -141,15 +131,15 @@ export default function Footer() {
 
             {/* Newsletter */}
             <div className="mt-8">
-              <h4 className="mb-3 text-sm font-semibold">Stay Updated</h4>
+              <h4 className="mb-3 text-sm font-semibold">{t("footer_stay_updated")}</h4>
               <div className="flex">
                 <input
                   type="email"
-                  placeholder="your@email.com"
+                  placeholder={t("footer_email_placeholder")}
                   className="flex-1 rounded-l-lg border border-white/10 bg-white/10 px-4 py-2.5 text-sm transition-colors focus:border-white/30 focus:outline-none"
                 />
                 <button className="rounded-r-lg bg-white px-4 py-2.5 text-sm font-medium text-black transition-colors hover:bg-gray-200">
-                  Subscribe
+                  {t("footer_subscribe")}
                 </button>
               </div>
             </div>
@@ -161,9 +151,8 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col items-center justify-center gap-6 text-sm text-gray-400 md:flex-row md:gap-12">
-            {/* Copyright & GitHub */}
             <div className="flex items-center gap-6">
-              <span>© {currentYear} PDFEditMobile. All rights reserved.</span>
+              <span>© {currentYear} {t("footer_copyright")}</span>
               <a
                 href=""
                 target="_blank"
@@ -173,24 +162,17 @@ export default function Footer() {
                 <Github className="h-5 w-5" />
               </a>
             </div>
-
-            {/* Signature */}
             <div className="text-center">
-              <p className="text-gray-500 text-sm tracking-wide">
+              <p className="text-sm tracking-wide text-gray-500">
                 Built with{" "}
-                <span className="text-rose-500 inline-block animate-pulse">
-                  ❤️
-                </span>{" "}
-                by{" "}
-                <span className="font-black text-white ml-1">Mesut Aras</span>
+                <span className="inline-block animate-pulse text-rose-500">❤️</span>{" "}
+                by <span className="ml-1 font-black text-white">Mesut Aras</span>
               </p>
             </div>
-
-            {/* Processing Indicator */}
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 shadow-xs">
               <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-              <span className="font-medium text-xs md:text-sm">
-                Processing 100% locally in your browser
+              <span className="text-xs font-medium md:text-sm">
+                {t("footer_processing")}
               </span>
             </div>
           </div>

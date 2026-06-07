@@ -4,9 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { tools } from "@/lib/constants";
+import { useI18n } from "@/lib/i18n";
 
 export const ToolsGrid = () => {
   const [showAll, setShowAll] = useState(false);
+  const { t } = useI18n();
   const featuredTools = tools.filter((t) => t.featured);
   const otherTools = tools.filter((t) => !t.featured);
 
@@ -17,14 +19,13 @@ export const ToolsGrid = () => {
       <div className="relative z-10 container mx-auto px-4">
         <div className="scroll-reveal mb-16 text-center">
           <div className="mb-6 inline-block rounded-full bg-gray-100 px-4 py-1.5 text-sm font-bold tracking-wider text-black uppercase">
-            All-In-One Solution
+            {t("tools_badge")}
           </div>
           <h2 className="mb-6 text-4xl font-black tracking-tight md:text-6xl">
-            Powerful <span className="text-gray-400">PDF Tools</span>
+            {t("tools_heading_1")} <span className="text-gray-400">{t("tools_heading_2")}</span>
           </h2>
           <p className="section-subtitle mx-auto text-xl font-medium italic">
-            Everything you need to work with PDF files, completely free and 100%
-            private.
+            {t("tools_subtitle")}
           </p>
         </div>
 
@@ -44,15 +45,15 @@ export const ToolsGrid = () => {
               <h3
                 className={`mb-3 font-black tracking-tight ${index === 0 ? "text-4xl" : "text-xl"}`}
               >
-                {tool.title}
+                {tool.titleKey ? t(tool.titleKey) : tool.title}
               </h3>
               <p
                 className={`font-medium text-gray-500 ${index === 0 ? "max-w-sm text-lg leading-relaxed" : "text-sm"}`}
               >
-                {tool.description}
+                {tool.descKey ? t(tool.descKey) : tool.description}
               </p>
               <div className="mt-auto flex items-center pt-6 text-sm font-black tracking-widest text-black/20 uppercase transition-colors group-hover:text-black">
-                Open Tool{" "}
+                {t("tools_open_tool")}{" "}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-2" />
               </div>
             </Link>
@@ -71,13 +72,13 @@ export const ToolsGrid = () => {
                   <tool.icon className="h-7 w-7" />
                 </div>
                 <h3 className="mb-3 text-xl font-black tracking-tight">
-                  {tool.title}
+                  {tool.titleKey ? t(tool.titleKey) : tool.title}
                 </h3>
                 <p className="text-sm font-medium text-gray-500">
-                  {tool.description}
+                  {tool.descKey ? t(tool.descKey) : tool.description}
                 </p>
                 <div className="mt-auto flex items-center pt-6 text-xs font-black tracking-widest text-black/10 uppercase transition-colors group-hover:text-black">
-                  Open Tool{" "}
+                  {t("tools_open_tool")}{" "}
                   <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
                 </div>
               </Link>
@@ -91,7 +92,7 @@ export const ToolsGrid = () => {
               onClick={() => setShowAll(!showAll)}
               className="group inline-flex items-center gap-2 rounded-full bg-black px-10 py-5 text-lg font-bold text-white shadow-2xl transition-all hover:scale-105 active:scale-95"
             >
-              {showAll ? "Show Less Tools" : "Explore All Tools"}
+              {showAll ? t("tools_show_less") : t("tools_explore_all")}
               <ChevronDown
                 className={`h-5 w-5 transition-transform duration-500 ${showAll ? "rotate-180" : ""}`}
               />

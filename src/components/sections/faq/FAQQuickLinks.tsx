@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { faqCategories } from "@/lib/constants";
+import { useI18n } from "@/lib/i18n";
 
 export const FAQQuickLinks = () => {
+  const { t } = useI18n();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -20,7 +23,7 @@ export const FAQQuickLinks = () => {
           <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 transition-colors group-hover:bg-black group-hover:text-white">
             <category.icon className="h-5 w-5" />
           </div>
-          <span className="text-sm font-medium">{category.title}</span>
+          <span className="text-sm font-medium">{t(category.title)}</span>
         </a>
       ))}
     </motion.div>

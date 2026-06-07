@@ -8,10 +8,12 @@ import { FAQQuickLinks } from "@/components/sections/faq/FAQQuickLinks";
 import { FAQCategories } from "@/components/sections/faq/FAQCategories";
 import { SimpleCTA } from "@/components/sections/common/SimpleCTA";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
+import { useI18n } from "@/lib/i18n";
 
 export default function FAQClient() {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState("");
+  const { t } = useI18n();
 
   const toggleItem = (key: string) => {
     const newOpenItems = new Set(openItems);
@@ -36,9 +38,7 @@ export default function FAQClient() {
 
   return (
     <main className="min-h-screen px-4 pt-32 pb-20">
-      {/* Background */}
       <BackgroundGradient />
-
       <div className="container mx-auto max-w-4xl">
         <FAQHeader />
         <FAQSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
@@ -49,11 +49,11 @@ export default function FAQClient() {
           toggleItem={toggleItem}
         />
         <SimpleCTA
-          title="Still Have Questions?"
-          description="Can't find what you're looking for? We're here to help."
-          primaryBtnText="Contact Us"
+          title={t("faq_still_questions")}
+          description={t("faq_still_questions_desc")}
+          primaryBtnText={t("faq_contact_us")}
           primaryBtnLink="/contact"
-          secondaryBtnText="Explore Tools"
+          secondaryBtnText={t("faq_explore_tools")}
           secondaryBtnLink="/"
         />
       </div>

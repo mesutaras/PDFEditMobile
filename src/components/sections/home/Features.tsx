@@ -1,7 +1,19 @@
+"use client";
+
 import { Check } from "lucide-react";
 import { features } from "@/lib/constants";
+import { useI18n } from "@/lib/i18n";
+
+const badgeKeys = [
+  "features_no_signup",
+  "features_works_offline",
+  "features_no_file_limits",
+  "features_forever_free",
+];
 
 export const Features = () => {
+  const { t } = useI18n();
+
   return (
     <section className="relative overflow-hidden bg-black py-24 text-white md:py-32">
       <div className="absolute inset-0 opacity-5">
@@ -16,9 +28,9 @@ export const Features = () => {
 
       <div className="relative z-10 container mx-auto px-4">
         <div className="scroll-reveal mb-16 text-center">
-          <h2 className="section-title mb-4 text-white">Why PDFEditMobile?</h2>
+          <h2 className="section-title mb-4 text-white">{t("features_heading")}</h2>
           <p className="section-subtitle mx-auto text-gray-400">
-            Built for speed, privacy, and simplicity.
+            {t("features_subtitle")}
           </p>
         </div>
 
@@ -31,26 +43,21 @@ export const Features = () => {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-black transition-transform group-hover:scale-110 group-hover:rotate-6">
                 <feature.icon className="h-7 w-7" />
               </div>
-              <h3 className="mb-3 text-xl font-bold">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
+              <h3 className="mb-3 text-xl font-bold">{t(feature.titleKey)}</h3>
+              <p className="text-gray-400">{t(feature.descKey)}</p>
             </div>
           ))}
         </div>
 
         {/* Trust Badges */}
         <div className="scroll-reveal mt-20 flex flex-wrap justify-center gap-6">
-          {[
-            "No signup required",
-            "Works offline",
-            "No file limits",
-            "Forever free",
-          ].map((badge) => (
+          {badgeKeys.map((key) => (
             <div
-              key={badge}
+              key={key}
               className="flex items-center gap-2 rounded-full border border-white/20 px-4 py-2"
             >
               <Check className="h-4 w-4 text-green-400" />
-              <span className="text-sm">{badge}</span>
+              <span className="text-sm">{t(key)}</span>
             </div>
           ))}
         </div>

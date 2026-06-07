@@ -1,6 +1,11 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 export const CTA = () => {
+  const { t } = useI18n();
+
   return (
     <section className="py-24 md:py-32">
       <div className="container mx-auto px-4">
@@ -10,21 +15,19 @@ export const CTA = () => {
 
           <div className="relative z-10">
             <h2 className="mb-4 text-3xl font-black tracking-tight md:text-5xl">
-              Need a specific tool?
+              {t("cta_heading")}
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg font-medium text-gray-500">
-              If there&apos;s a PDF feature you need that&apos;s missing,
-              I&apos;d love to build it for you. Request new tools and features
-              at{" "}
+              {t("cta_subtitle")}{" "}
               <span className="font-bold text-black">
-                info@pdfeditmobile.com@gmail.com
+                info@pdfeditmobile.com
               </span>
             </p>
             <a
               href="mailto:info@pdfeditmobile.com?subject=Tool%20Request%20-%20PDFEditMobile"
               className="btn-primary inline-flex items-center gap-2 px-12 py-5 text-lg"
             >
-              Request a Tool
+              {t("cta_button")}
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

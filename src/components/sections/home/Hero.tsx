@@ -4,9 +4,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import { FileText, Merge, Image as ImageIcon, ArrowRight } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 export const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -69,7 +71,7 @@ export const Hero = () => {
         >
           <span className="mb-8 inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium">
             <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-            100% Free & Privacy First
+            {t("hero_badge")}
           </span>
         </motion.div>
 
@@ -79,9 +81,9 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="mb-6 text-5xl leading-[0.95] font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
         >
-          Every PDF Tool
+          {t("hero_title_1")}
           <br />
-          <span className="animate-text-shimmer">You&apos;ll Ever Need</span>
+          <span className="animate-text-shimmer">{t("hero_title_2")}</span>
         </motion.h1>
 
         <motion.p
@@ -90,9 +92,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mx-auto mb-10 max-w-2xl text-lg text-gray-500 md:text-xl"
         >
-          Merge, split, compress, convert — do everything with your PDFs. All
-          processing happens in your browser. Your files never leave your
-          device.
+          {t("hero_subtitle")}
         </motion.p>
 
         <motion.div
@@ -106,7 +106,7 @@ export const Hero = () => {
             className="btn-primary group relative inline-flex items-center justify-center gap-2 overflow-hidden px-10 py-4 text-lg"
           >
             <span className="relative z-10 flex items-center gap-2">
-              Get Started
+              {t("hero_get_started")}
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
           </Link>
@@ -114,7 +114,7 @@ export const Hero = () => {
             href="#tools"
             className="btn-secondary group relative inline-flex items-center justify-center overflow-hidden px-10 py-4 text-lg"
           >
-            <span className="relative z-10">Explore Tools</span>
+            <span className="relative z-10">{t("hero_explore_tools")}</span>
           </Link>
         </motion.div>
       </div>
