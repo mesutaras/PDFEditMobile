@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { RefreshCw, AlertTriangle } from "lucide-react";
 import { AnimatedBackground } from "@/components/ui/ToolPageElements";
+import { useI18n } from "@/lib/i18n";
 
 export default function Error({
   error,
@@ -11,6 +12,8 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const { t } = useI18n();
+
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -25,10 +28,10 @@ export default function Error({
         </div>
 
         <h2 className="mb-3 text-3xl font-bold text-gray-900">
-          Something went wrong!
+          {t("common_error")}
         </h2>
         <p className="mb-8 text-lg text-gray-500">
-          We apologize for the inconvenience. An unexpected error has occurred.
+          {error.message || t("common_error")}
         </p>
 
         <button
@@ -36,7 +39,7 @@ export default function Error({
           className="inline-flex items-center gap-2 rounded-full bg-black px-8 py-4 font-medium text-white transition-all hover:scale-105 hover:bg-gray-800"
         >
           <RefreshCw className="h-5 w-5" />
-          Try Again
+          {t("common_error_retry")}
         </button>
       </div>
     </div>

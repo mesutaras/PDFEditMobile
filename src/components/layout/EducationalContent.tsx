@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 interface EducationalContentProps {
   howItWorks?: { title: string; steps: string[] };
@@ -14,6 +15,7 @@ export function EducationalContent({
   benefits,
   faqs,
 }: EducationalContentProps) {
+  const { t } = useI18n();
   if (!howItWorks && !benefits && !faqs) return null;
 
   return (
@@ -88,7 +90,7 @@ export function EducationalContent({
           className="mx-auto max-w-3xl pb-10"
         >
           <h2 className="mb-10 text-center text-3xl font-bold">
-            Frequently Asked Questions
+            {t("faq_heading")}
           </h2>
           <div className="space-y-4">
             {faqs.map((faq, i) => (

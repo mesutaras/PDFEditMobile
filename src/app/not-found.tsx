@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { Home } from "lucide-react";
-import {
-  AnimatedBackground,
-  FloatingDecorations,
-} from "@/components/ui/ToolPageElements";
+import { AnimatedBackground, FloatingDecorations } from "@/components/ui/ToolPageElements";
+import { useI18n } from "@/lib/i18n";
 
 export default function NotFound() {
+  const { t } = useI18n();
+
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <AnimatedBackground />
@@ -18,10 +18,10 @@ export default function NotFound() {
           404
         </h1>
         <h2 className="mb-6 text-3xl font-semibold text-gray-800">
-          Page Not Found
+          {t("common_not_found")}
         </h2>
         <p className="mx-auto mb-10 max-w-md text-lg text-gray-500">
-          The page you are looking for doesn&apos;t exist or has been moved.
+          {t("common_not_found")}
         </p>
 
         <Link
@@ -29,7 +29,7 @@ export default function NotFound() {
           className="inline-flex items-center gap-2 rounded-full bg-black px-8 py-4 font-medium text-white transition-all hover:scale-105 hover:bg-gray-800"
         >
           <Home className="h-5 w-5" />
-          Back to Home
+          {t("common_back_home")}
         </Link>
       </div>
     </div>
