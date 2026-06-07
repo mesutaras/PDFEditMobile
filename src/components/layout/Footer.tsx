@@ -164,9 +164,9 @@ export default function Footer() {
             </div>
             <div className="text-center">
               <p className="text-sm tracking-wide text-gray-500">
-                Built with{" "}
+                {t("footer_built_with")}{" "}
                 <span className="inline-block animate-pulse text-rose-500">❤️</span>{" "}
-                by <span className="ml-1 font-black text-white">Mesut Aras</span>
+                {t("footer_by")} <span className="ml-1 font-black text-white">Mesut Aras</span>
               </p>
             </div>
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 shadow-xs">

@@ -1,24 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Linkedin,
-  Github,
-  Twitter,
-  ExternalLink,
-  LucideIcon,
-} from "lucide-react";
-import { aboutSocials } from "@/lib/constants";
+import { Mail, Linkedin, Github, Twitter, ExternalLink } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
-const iconMap: Record<string, LucideIcon> = {
-  Email: Mail,
-  LinkedIn: Linkedin,
-  GitHub: Github,
-  "X (Twitter)": Twitter,
-};
+const connectSocials = [
+  { nameKey: "about_social_email", href: "mailto:info@pdfeditmobile.com", label: "info@pdfeditmobile.com", color: "hover:bg-red-50 hover:text-red-600 hover:border-red-200", icon: Mail },
+  { nameKey: "about_social_linkedin", href: "https://www.linkedin.com/in/", label: "linkedin.com/in/mesutaras", color: "hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200", icon: Linkedin },
+  { nameKey: "about_social_github", href: "https://github.com/mesutaras", label: "github.com/mesutaras", color: "hover:bg-gray-100 hover:text-gray-900 hover:border-gray-300", icon: Github },
+  { nameKey: "about_social_twitter", href: "https://x.com/", label: "x.com/", color: "hover:bg-gray-100 hover:text-gray-900 hover:border-gray-300", icon: Twitter },
+];
 
 export const AboutConnect = () => {
+  const { t } = useI18n();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -26,14 +21,14 @@ export const AboutConnect = () => {
       transition={{ duration: 0.6, delay: 0.5 }}
     >
       <h2 className="mb-8 text-center text-2xl font-bold">
-        Let&apos;s Connect
+        {t("about_lets_connect")}
       </h2>
       <div className="mx-auto grid max-w-2xl gap-4 sm:grid-cols-2">
-        {aboutSocials.map((social, index) => {
-          const Icon = iconMap[social.name] || ExternalLink;
+        {connectSocials.map((social, index) => {
+          const Icon = social.icon;
           return (
             <motion.a
-              key={social.name}
+              key={social.nameKey}
               href={social.href}
               target={social.href.startsWith("mailto") ? undefined : "_blank"}
               rel="noopener noreferrer"
@@ -46,7 +41,7 @@ export const AboutConnect = () => {
                 <Icon className="h-5 w-5" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="font-medium">{social.name}</p>
+                <p className="font-medium">{t(social.nameKey)}</p>
                 <p className="truncate text-sm text-gray-500">{social.label}</p>
               </div>
               <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-current" />

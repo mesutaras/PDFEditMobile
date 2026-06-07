@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n";
 
 export const AboutPhilosophy = () => {
+  const { t } = useI18n();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -22,10 +25,9 @@ export const AboutPhilosophy = () => {
       </div>
       <div className="relative z-10">
         <p className="mx-auto max-w-3xl text-2xl leading-relaxed font-medium md:text-3xl">
-          &ldquo;I love the challenge of coding and design, focusing on creating
-          seamless user experiences across all platforms.&rdquo;
+          &ldquo;{t("about_philosophy_quote")}&rdquo;
         </p>
-        <p className="mt-6 text-gray-400">— My Development Philosophy</p>
+        <p className="mt-6 text-gray-400">— {t("about_philosophy_label")}</p>
       </div>
     </motion.div>
   );

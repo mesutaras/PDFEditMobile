@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/ToolPageElements";
 import { EducationalContent } from "@/components/layout/EducationalContent";
 import { useHistory } from "@/context/HistoryContext";
+import { useI18n } from "@/lib/i18n";
 
 type SplitMode =
   | "all"
@@ -49,6 +50,7 @@ interface VisualGroup {
 
 export function SplitPDFClient() {
   const { addToHistory } = useHistory();
+  const { t } = useI18n();
   const [file, setFile] = useState<File | null>(null);
   const [mode, setMode] = useState<SplitMode>("all");
   const [ranges, setRanges] = useState("");
@@ -406,8 +408,8 @@ export function SplitPDFClient() {
               className="mx-auto max-w-4xl"
             >
               <ToolHeader
-                title="Split PDF"
-                description="Extract pages from your PDF with visual selection."
+                title={t("split_title")}
+                description={t("split_desc")}
                 icon={Scissors}
               />
 
@@ -430,17 +432,17 @@ export function SplitPDFClient() {
                     onChange={handleFileChange}
                   />
                   <Upload className="mb-4 h-12 w-12 text-gray-400" />
-                  <p className="mb-2 text-lg font-medium">Drop your PDF here</p>
-                  <p className="text-sm text-gray-400">or click to browse</p>
+                  <p className="mb-2 text-lg font-medium">{t("split_drop")}</p>
+                  <p className="text-sm text-gray-400">{t("split_browse")}</p>
                 </div>
               </ToolCard>
             </motion.div>
           )}
 
           {status === "loading" && (
-            <ProcessingState
-              message="Loading PDF..."
-              description="Generating page previews..."
+              <ProcessingState
+              message={t("split_loading")}
+              description={t("split_loading_desc")}
             />
           )}
 
@@ -877,9 +879,9 @@ export function SplitPDFClient() {
           )}
 
           {status === "processing" && (
-            <ProcessingState
-              message="Splitting PDF..."
-              description="This won't take long..."
+                    <ProcessingState
+              message={t("split_processing")}
+              description={t("tool_processing_desc")}
             />
           )}
 

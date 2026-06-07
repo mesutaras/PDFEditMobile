@@ -24,7 +24,7 @@ export const CTA = () => {
               </span>
             </p>
             <a
-              href="mailto:info@pdfeditmobile.com?subject=Tool%20Request%20-%20PDFEditMobile"
+              href={`mailto:info@pdfeditmobile.com?subject=${encodeURIComponent(t("cta_mailto_subject"))}`}
               className="btn-primary inline-flex items-center gap-2 px-12 py-5 text-lg"
             >
               {t("cta_button")}

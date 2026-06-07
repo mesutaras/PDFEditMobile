@@ -1,7 +1,7 @@
 "use client";
 
 import { Shield, Mail } from "lucide-react";
-import { privacySections } from "@/lib/legal-data";
+import { getLegalData } from "@/lib/legal-data";
 import { LegalHeader } from "@/components/sections/legal/LegalHeader";
 import { PrivacyHighlights } from "@/components/sections/legal/PrivacyHighlights";
 import { LegalContent } from "@/components/sections/legal/LegalContent";
@@ -10,7 +10,8 @@ import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
 import { useI18n } from "@/lib/i18n";
 
 export default function PrivacyClient() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const legalData = getLegalData(lang);
 
   return (
     <main className="min-h-screen px-4 pt-32 pb-20">
@@ -20,13 +21,13 @@ export default function PrivacyClient() {
         <LegalHeader
           title={t("legal_privacy_title")}
           description={t("legal_privacy_desc")}
-          lastUpdated="December 22, 2024"
+          lastUpdated="22 Aralık 2024"
           icon={Shield}
         />
 
         <PrivacyHighlights />
 
-        <LegalContent sections={privacySections} />
+        <LegalContent sections={legalData.privacySections} />
 
         <SimpleCTA
           title={t("legal_privacy_questions")}

@@ -32,27 +32,27 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_BASE_URL || "https://pdfeditmobile.vercel.app"
   ),
   title: {
-    default: "PDFEditMobile | #1 Free Online PDF Editor, Merger & Converter",
+    default: "PDFEditMobile | #1 Ücretsiz Çevrimiçi PDF Editörü, Birleştirici ve Dönüştürücü",
     template: "%s | PDFEditMobile",
   },
   description:
-    "PDFEditMobile is the world's most premium, free online PDF tool. Edit, merge, split, compress, and convert PDFs 100% locally in your browser. Fast, secure, and no sign-up required.",
+    "PDFEditMobile, dünyanın en kaliteli ücretsiz çevrimiçi PDF aracıdır. PDF'leri tarayıcınızda %100 yerel olarak düzenleyin, birleştirin, bölün, sıkıştırın ve dönüştürün. Hızlı, güvenli ve kayıt gerektirmez.",
   applicationName: "PDFEditMobile",
-  authors: [{ name: "PDFEditMobile Team" }],
+  authors: [{ name: "PDFEditMobile Ekibi" }],
   keywords: [
-    "PDF Editor",
-    "Merge PDF",
-    "Compress PDF",
-    "PDF Converter",
-    "Split PDF",
-    "Edit PDF Online",
-    "Sign PDF",
-    "PDF to Word",
-    "JPG to PDF",
+    "PDF Editör",
+    "PDF Birleştir",
+    "PDF Sıkıştır",
+    "PDF Dönüştürücü",
+    "PDF Böl",
+    "PDF Çevrimiçi Düzenle",
+    "PDF İmzala",
+    "PDF'ten Word'e",
+    "JPG'den PDF'e",
     "OCR PDF",
-    "Free PDF Tools",
-    "Secure PDF processing",
-    "No upload PDF tool",
+    "Ücretsiz PDF Araçları",
+    "Güvenli PDF işleme",
+    "Yüklemesiz PDF aracı",
   ],
   icons: {
     icon: "/favicon.ico",
@@ -60,27 +60,27 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "PDFEditMobile | The Easiest & Most Secure PDF Tool",
+    title: "PDFEditMobile | En Kolay ve En Güvenli PDF Aracı",
     description:
-      "The premium way to manage your PDFs. 100% browser-based editing, merging, and converting. Your files never leave your device.",
+      "PDF'lerinizi yönetmenin en kaliteli yolu. %100 tarayıcı tabanlı düzenleme, birleştirme ve dönüştürme. Dosyalarınız asla cihazınızdan çıkmaz.",
     url: "https://pdfeditmobile.vercel.app",
     siteName: "PDFEditMobile",
-    locale: "en_US",
+    locale: "tr_TR",
     type: "website",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "PDFEditMobile - Free Online PDF Tools",
+        alt: "PDFEditMobile - Ücretsiz Çevrimiçi PDF Araçları",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PDFEditMobile | #1 Free Online PDF Tools",
+    title: "PDFEditMobile | #1 Ücretsiz Çevrimiçi PDF Araçları",
     description:
-      "Premium PDF editing and management, 100% private and secure. No uploads, no limits.",
+      "Premium PDF düzenleme ve yönetim, %100 gizli ve güvenli. Yükleme yok, sınır yok.",
     images: ["/og-image.png"],
   },
   other: {
@@ -110,7 +110,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="tr" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

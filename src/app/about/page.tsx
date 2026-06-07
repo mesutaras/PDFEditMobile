@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import AboutClient from "@/components/pages/about/AboutClient";
 
 export const metadata: Metadata = {
-  title: "About | Arsh Verma - PDFEditMobile",
+  title: "Hakkında | Mesut Aras - PDFEditMobile",
   description:
-    "Learn more about Arsh Verma, the creator of PDFEditMobile, and his mission to build polished, engaging digital realities.",
+    "PDFEditMobile'ın yaratıcısı Mesut Aras ve onun kusursuz, etkileyici dijital gerçeklikler inşa etme misyonu hakkında daha fazla bilgi edinin.",
 };
 
 export default function AboutPage() {

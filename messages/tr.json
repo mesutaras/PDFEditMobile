@@ -249,6 +249,20 @@
   "about_skill_app_detail": "Çapraz Platform",
   "about_skill_design": "Dijital Tasarım",
   "about_skill_design_detail": "UI/UX Tasarım",
+  "about_badge": "Geliştirici & Tasarımcı",
+  "about_title": "Merhaba, ben",
+  "about_description_1": "Tam yığın (full-stack) dijital geliştiriciyim. Uzmanlığım Unity ile oyun geliştirme, ancak dinamik web siteleri ve uygulamalar da geliştiriyorum.",
+  "about_description_2": "Her projeyi yaratıcı vizyonu teknik hassasiyetle birleştirme fırsatı olarak görüyorum. Geliştirme felsefem basit: harika fikirleri kusursuz, etkileyici dijital gerçekliğe dönüştürmek.",
+  "about_view_portfolio": "Portfolyoyu Gör",
+  "about_get_in_touch": "İletişime Geç",
+  "about_full_stack_creator": "Tam Yığın Geliştirici",
+  "about_what_i_do": "Yaptıklarım",
+  "about_philosophy_quote": "Kodlama ve tasarımın zorluklarını seviyorum, tüm platformlarda kusursuz kullanıcı deneyimleri oluşturmaya odaklanıyorum.",
+  "about_philosophy_label": "Geliştirme Felsefem",
+  "about_lets_connect": "Bağlanalım",
+  "about_ready_title": "Bir sonraki büyük projeye hazır mısınız?",
+  "about_ready_desc": "İster oyun, ister web sitesi, ister uygulama — yeni fikirler üzerinde işbirliği yapmaktan her zaman heyecan duyarım.",
+  "about_ready_btn": "PDFEditMobile'ı Keşfedin",
 
   "auth_welcome_title": "PDFEditMobile'a Hoş Geldiniz",
   "auth_welcome_subtitle": "Geçmişinizi kaydetmek ve dosyalarınıza cihazlar arası erişmek için giriş yapın.",
@@ -277,6 +291,13 @@
   "common_error_retry": "Tekrar Dene",
   "common_not_found": "Sayfa bulunamadı",
   "common_back_home": "Ana Sayfaya Dön",
+  "common_processing_document": "Belge İşleniyor",
+  "loading_initializing": "PDFEditMobile Başlatılıyor",
+  "testimonials_loved_by": "Dünya çapında",
+  "testimonials_users_worldwide": "kullanıcı tarafından seviliyor",
+  "footer_built_with": "",
+  "footer_by": "tarafından",
+  "cta_mailto_subject": "Araç Talebi - PDFEditMobile",
 
   "faq_back_home": "Ana Sayfaya Dön",
   "faq_heading": "Sıkça Sorulan Sorular",
@@ -616,5 +637,9 @@
   "sign_benefit3_title": "Görsel Hassasiyet",
   "sign_benefit3_desc": "Canlı yenilenen işaretçilerimizle imzanızı belgenin herhangi bir yerine tam olarak yerleştirin.",
   "sign_benefit4_title": "Evrensel Uyumluluk",
-  "sign_benefit4_desc": "İmzalı PDF'lerimiz Adobe Acrobat ve Chrome gibi tüm büyük standart PDF okuyucular tarafından tanınır."
+  "sign_benefit4_desc": "İmzalı PDF'lerimiz Adobe Acrobat ve Chrome gibi tüm büyük standart PDF okuyucular tarafından tanınır.",
+
+  "split_title": "PDF Böl",
+  "split_drop": "PDF'inizi buraya bırakın",
+  "split_browse": "veya göz atmak için tıklayın"
 }

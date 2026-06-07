@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n";
 
 interface LoaderProps {
   size?: "sm" | "md" | "lg" | "xl";
@@ -38,12 +39,14 @@ export function Loader({ size = "md", className = "", text }: LoaderProps) {
 }
 
 export function LoadingOverlay({ text }: { text?: string }) {
+  const { t } = useI18n();
+
   return (
     <div className="fixed inset-0 z-999 flex items-center justify-center bg-white/60 backdrop-blur-3xl">
       {/* Minimalist Background Gradients */}
       <div className="absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-50 opacity-50 blur-[120px]" />
 
-      <Loader size="xl" text={text || "Processing Document"} />
+      <Loader size="xl" text={text || t("common_processing_document")} />
     </div>
   );
 }

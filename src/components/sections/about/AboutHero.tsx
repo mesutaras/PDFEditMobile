@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Mail } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 export const AboutHero = () => {
+  const { t } = useI18n();
+
   return (
     <div className="mb-20 grid items-center gap-12 lg:grid-cols-2">
       {/* Photo */}
@@ -24,7 +27,7 @@ export const AboutHero = () => {
           <div className="relative overflow-hidden rounded-4xl border-4 border-white shadow-2xl">
             <Image
               src="/arsh-verma.jpg"
-              alt="Arsh Verma"
+              alt="Mesut Aras"
               width={500}
               height={500}
               className="h-full w-full object-cover"
@@ -39,7 +42,7 @@ export const AboutHero = () => {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="absolute -right-4 -bottom-4 rounded-2xl bg-black px-5 py-3 text-white shadow-xl"
           >
-            <p className="text-sm font-medium">Full-Stack Creator</p>
+            <p className="text-sm font-medium">{t("about_full_stack_creator")}</p>
           </motion.div>
         </div>
       </motion.div>
@@ -53,24 +56,19 @@ export const AboutHero = () => {
       >
         <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium">
           <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-          Developer & Creator
+          {t("about_badge")}
         </span>
 
         <h1 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight sm:text-5xl lg:text-6xl">
-          Hi, I&apos;m <span className="animate-text-shimmer">Arsh Verma</span>
+          {t("about_title")} <span className="animate-text-shimmer">Mesut Aras</span>
         </h1>
 
         <p className="mb-6 text-lg leading-relaxed text-gray-600">
-          A <strong>Tech Gaming Technology</strong> student at VIT Bhopal and a
-          full-stack digital creator. My expertise lies in game development with
-          Unity, but I also build dynamic websites and apps.
+          {t("about_description_1")}
         </p>
 
         <p className="mb-8 leading-relaxed text-gray-500">
-          I&apos;ve earned numerous certifications and treat every project as an
-          opportunity to blend creative vision with technical precision. My
-          development philosophy is simple: turn great ideas into polished,
-          engaging digital reality.
+          {t("about_description_2")}
         </p>
 
         <div className="flex flex-col gap-4 sm:flex-row">
@@ -79,7 +77,7 @@ export const AboutHero = () => {
             target="_blank"
             className="btn-primary inline-flex items-center gap-2"
           >
-            View Portfolio
+            {t("about_view_portfolio")}
             <ExternalLink className="h-4 w-4" />
           </Link>
           <Link
@@ -87,7 +85,7 @@ export const AboutHero = () => {
             className="btn-secondary inline-flex items-center gap-2"
           >
             <Mail className="h-4 w-4" />
-            Get in Touch
+            {t("about_get_in_touch")}
           </Link>
         </div>
       </motion.div>

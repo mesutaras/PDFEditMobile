@@ -1,6 +1,11 @@
+"use client";
+
 import { Star } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 export const Testimonials = () => {
+  const { t } = useI18n();
+
   return (
     <section className="border-t border-gray-100 py-16">
       <div className="container mx-auto px-4">
@@ -11,8 +16,8 @@ export const Testimonials = () => {
             ))}
           </div>
           <div className="text-gray-500">
-            Loved by <span className="font-semibold text-black">10,000+</span>{" "}
-            users worldwide
+            <span className="font-semibold text-black">10,000+</span>{" "}
+            {t("testimonials_loved_by")} {t("testimonials_users_worldwide")}
           </div>
         </div>
       </div>

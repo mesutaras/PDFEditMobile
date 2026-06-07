@@ -2,21 +2,21 @@ import { Metadata } from "next";
 import { SplitPDFClient } from "@/components/pages/split-pdf/SplitPDFClient";
 
 export const metadata: Metadata = {
-  title: "Split PDF Online | Separate PDF Pages for Free",
+  title: "PDF Böl | PDF Sayfalarını Ücretsiz Ayır",
   description:
-    "Easily split PDF files into individual pages or extract specific page ranges into new documents. 100% private, free, and secure processing in your browser.",
+    "PDF dosyalarını kolayca ayrı sayfalara bölün veya belirli sayfa aralıklarını yeni belgelere çıkarın. Tarayıcınızda %100 gizli, ücretsiz ve güvenli işleme.",
   keywords: [
-    "Split PDF",
-    "Separate PDF Pages",
-    "Extract PDF Pages",
-    "Free PDF Splitter",
+    "PDF Böl",
+    "PDF Sayfalarını Ayır",
+    "PDF Sayfası Çıkar",
+    "Ücretsiz PDF Bölücü",
     "PDFEditMobile",
   ],
   openGraph: {
-    title: "Split PDF Online | #1 Free PDF Splitting Tool",
+    title: "PDF Böl | #1 Ücretsiz PDF Bölme Aracı",
     description:
-      "Separate or extract PDF pages in seconds. Fast, free, and secure.",
-    url: "https://simplypdf.vercel.app/split-pdf",
+      "PDF sayfalarını saniyeler içinde ayırın veya çıkarın. Hızlı, ücretsiz ve güvenli.",
+    url: "https://pdfeditmobile.vercel.app/split-pdf",
   },
 };
 
