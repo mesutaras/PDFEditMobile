@@ -150,6 +150,7 @@ export default function Header() {
             <Link href="/split-pdf" className="underline-hover font-medium text-gray-700 transition-colors hover:text-black">{t("nav_split")}</Link>
             <Link href="/compress-pdf" className="underline-hover font-medium text-gray-700 transition-colors hover:text-black">{t("nav_compress")}</Link>
             <Link href="/about" className="underline-hover font-medium text-gray-700 transition-colors hover:text-black">{t("nav_about")}</Link>
+            <Link href="/blog" className="underline-hover font-medium text-gray-700 transition-colors hover:text-black">{t("nav_blog")}</Link>
           </div>
 
           {/* Language + Auth */}

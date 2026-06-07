@@ -29,6 +29,7 @@ const footerLinks = {
     { key: "footer_faq", href: "/faq" },
     { key: "footer_changelog", href: "/changelog" },
     { key: "footer_sitemap", href: "/all-tools" },
+    { key: "footer_blog", href: "/blog" },
   ],
 };
 
