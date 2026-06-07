@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useHistory, HistoryItem } from "@/context/HistoryContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { useI18n } from "@/lib/i18n";
 
 // Background decoration component
 const BackgroundDecoration = () => (
@@ -34,6 +35,7 @@ const BackgroundDecoration = () => (
 export default function HistoryPage() {
   const { user } = useAuth();
   const { history, clearHistory } = useHistory();
+  const { t } = useI18n();
 
   // Format timestamp to readable string
   const formatDate = (timestamp: number) => {
@@ -44,11 +46,11 @@ export default function HistoryPage() {
     const diffHours = Math.floor(diffMs / 3600000);
     const diffDays = Math.floor(diffMs / 86400000);
 
-    if (diffMins < 1) return "Just now";
-    if (diffMins < 60) return `${diffMins}m ago`;
-    if (diffHours < 24) return `${diffHours}h ago`;
-    if (diffDays < 7) return `${diffDays}d ago`;
-    return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    if (diffMins < 1) return t("history_just_now");
+    if (diffMins < 60) return `${diffMins}${t("history_minutes_ago")}`;
+    if (diffHours < 24) return `${diffHours}${t("history_hours_ago")}`;
+    if (diffDays < 7) return `${diffDays}${t("history_days_ago")}`;
+    return date.toLocaleDateString("tr-TR", { month: "short", day: "numeric" });
   };
 
   // Animation variants
@@ -84,18 +86,17 @@ export default function HistoryPage() {
             <History className="h-12 w-12 text-gray-400" />
           </motion.div>
           <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-            Sign in to view your history
+            {t("history_sign_in_title")}
           </h1>
           <p className="mx-auto mb-10 max-w-md text-lg text-gray-500">
-            Sign in with Google to track your PDF actions and access them
-            anytime.
+            {t("history_sign_in_desc")}
           </p>
           <Link
             href="/"
             className="btn-primary inline-flex items-center gap-2 px-10 py-4 text-lg"
           >
             <ArrowLeft className="h-5 w-5" />
-            Go to Home
+            {t("history_go_home")}
           </Link>
         </motion.div>
       </main>
@@ -119,11 +120,11 @@ export default function HistoryPage() {
                 <History className="h-5 w-5" />
               </div>
               <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                My History
+                {t("history_my_history")}
               </h1>
             </div>
             <p className="ml-13 text-gray-500">
-              Track your PDF actions across sessions
+              {t("history_track_desc")}
             </p>
           </div>
           {history.length > 0 && (
@@ -134,7 +135,7 @@ export default function HistoryPage() {
               whileTap={{ scale: 0.98 }}
             >
               <Trash2 className="h-4 w-4" />
-              Clear All
+              {t("history_clear_all")}
             </motion.button>
           )}
         </motion.div>
@@ -153,16 +154,16 @@ export default function HistoryPage() {
             >
               <Clock className="h-10 w-10 text-gray-400" />
             </motion.div>
-            <h3 className="mb-3 text-2xl font-bold">No activity yet</h3>
+            <h3 className="mb-3 text-2xl font-bold">{t("history_no_activity")}</h3>
             <p className="mx-auto mb-8 max-w-sm text-gray-500">
-              Your PDF actions will appear here once you start using our tools.
+              {t("history_no_activity_desc")}
             </p>
             <Link
               href="/"
               className="btn-primary inline-flex items-center gap-2"
             >
               <Sparkles className="h-4 w-4" />
-              Explore Tools
+              {t("history_explore_tools")}
             </Link>
           </motion.div>
         ) : (
@@ -231,7 +232,7 @@ export default function HistoryPage() {
               className="inline-flex items-center gap-2 text-gray-500 transition-colors hover:text-black"
             >
               <ArrowLeft className="h-4 w-4" />
-              Back to Tools
+              {t("history_back_tools")}
             </Link>
           </motion.div>
         )}

@@ -684,5 +684,20 @@
   "support_faq_desc": "Sık sorulan soruların yanıtlarını bulun.",
   "support_faq_action": "SSS'yi Gör",
   "support_docs_title": "Yardım Dokümantasyonu",
-  "support_docs_desc": "Çok yakında: Her PDFEditMobile aracında uzmanlaşmanıza yardımcı olacak kapsamlı rehberler ve eğitimler."
+  "support_docs_desc": "Çok yakında: Her PDFEditMobile aracında uzmanlaşmanıza yardımcı olacak kapsamlı rehberler ve eğitimler.",
+
+  "history_sign_in_title": "Geçmişinizi görüntülemek için giriş yapın",
+  "history_sign_in_desc": "PDF işlemlerinizi takip etmek ve istediğiniz zaman erişmek için Google ile giriş yapın.",
+  "history_go_home": "Ana Sayfaya Git",
+  "history_my_history": "Geçmişim",
+  "history_track_desc": "PDF işlemlerinizi oturumlar arası takip edin",
+  "history_clear_all": "Tümünü Temizle",
+  "history_no_activity": "Henüz etkinlik yok",
+  "history_no_activity_desc": "Araçlarımızı kullanmaya başladığınızda PDF işlemleriniz burada görünecek.",
+  "history_explore_tools": "Araçları Keşfet",
+  "history_back_tools": "Araçlara Dön",
+  "history_just_now": "Az önce",
+  "history_minutes_ago": "dk önce",
+  "history_hours_ago": "sa önce",
+  "history_days_ago": "gün önce"
 }
