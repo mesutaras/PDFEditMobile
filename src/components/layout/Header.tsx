@@ -156,9 +156,10 @@ export default function Header() {
           <div className="hidden items-center gap-3 lg:flex">
             <button
               onClick={() => setLang(lang === "tr" ? "en" : "tr")}
-              className="rounded-lg border border-gray-200 px-2.5 py-1.5 text-xs font-bold text-gray-500 transition-all hover:border-black hover:text-black"
+              className="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-black hover:text-black hover:shadow-md"
             >
-              {lang === "tr" ? "EN" : "TR"}
+              <span className="text-base">{lang === "tr" ? "🇬🇧" : "🇹🇷"}</span>
+              <span>{lang === "tr" ? "EN" : "TR"}</span>
             </button>
 
             {isLoading ? (
