@@ -2,21 +2,21 @@ import { Metadata } from "next";
 import { UnlockPDFClient } from "@/components/pages/unlock-pdf/UnlockPDFClient";
 
 export const metadata: Metadata = {
-  title: "Unlock PDF Online | Remove PDF Password & Restrictions",
+  title: "PDF Kilit Aç | PDF Şifresini Ücretsiz Kaldır",
   description:
-    "Remove passwords and permissions from your PDF files instantly. Unlock your documents for editing and printing free and privately in your browser.",
+    "PDF dosyalarınızdaki şifre korumasını ve kısıtlamaları anında kaldırın. Yazdırma, kopyalama ve düzenleme kısıtlamalarını kolayca kaldırın. %100 ücretsiz, gizli ve güvenli.",
   keywords: [
-    "Unlock PDF",
-    "Remove PDF Password",
-    "PDF Decrypt",
-    "Free PDF Unlocker",
+    "PDF Kilit Aç",
+    "PDF Şifre Kaldır",
+    "PDF Koruma Kaldır",
+    "Ücretsiz PDF Kilit Açıcı",
     "PDFEditMobile",
   ],
   openGraph: {
-    title: "Unlock PDF Online | #1 Free PDF Unlocking Tool",
+    title: "PDF Kilit Aç | #1 Ücretsiz PDF Kilit Açma Aracı",
     description:
-      "Remove PDF restrictions and passwords in seconds. Fast and private.",
-    url: "https://simplypdf.vercel.app/unlock-pdf",
+      "Korumalı PDF'lerinizin kilidini saniyeler içinde açın. Hızlı, ücretsiz ve güvenli.",
+    url: "https://pdfeditmobile.vercel.app/unlock-pdf",
   },
 };
 

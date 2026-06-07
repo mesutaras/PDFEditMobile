@@ -2,22 +2,22 @@ import { Metadata } from "next";
 import { SignPDFClient } from "@/components/pages/sign-pdf/SignPDFClient";
 
 export const metadata: Metadata = {
-  title: "Sign PDF Online | Add Digital Signature to PDF Free",
+  title: "PDF İmzala | Dijital İmza Ekleme Aracı",
   description:
-    "Sign your PDF documents online with ease. Draw your signature or upload an image to sign files 100% privately and securely in your browser. No sign-up required.",
+    "Belgelerinizi profesyonel bir dijital imza ile güvenli bir şekilde imzalayın. Çizerek, yazarak veya yükleyerek imza oluşturun. %100 ücretsiz, gizli ve tarayıcıda işlenir.",
   keywords: [
-    "Sign PDF",
-    "Digital Signature",
-    "Electronic Signature",
-    "PDF Signer",
-    "Free PDF Sign",
+    "PDF İmzala",
+    "Dijital İmza",
+    "PDF İmza Ekle",
+    "Elektronik İmza",
+    "Ücretsiz İmza Aracı",
     "PDFEditMobile",
   ],
   openGraph: {
-    title: "Sign PDF Online | #1 Free PDF Signing Tool",
+    title: "PDF İmzala | #1 Ücretsiz Dijital İmza Aracı",
     description:
-      "The easiest way to sign your PDF documents electronically. Fast, free, and secure.",
-    url: "https://simplypdf.vercel.app/sign-pdf",
+      "PDF'lerinizi saniyeler içinde imzalayın. Hızlı, ücretsiz ve %100 gizli.",
+    url: "https://pdfeditmobile.vercel.app/sign-pdf",
   },
 };
 

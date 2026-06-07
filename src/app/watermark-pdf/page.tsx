@@ -2,21 +2,21 @@ import { Metadata } from "next";
 import { WatermarkPDFClient } from "@/components/pages/watermark-pdf/WatermarkPDFClient";
 
 export const metadata: Metadata = {
-  title: "Add Watermark to PDF | Professional PDF Watermarking Free",
+  title: "PDF Filigran Ekle | Ücretsiz PDF Filigran Aracı",
   description:
-    "Add custom text or image watermarks to your PDF documents. Set opacity, position, and rotation for a professional look. 100% private and free online tool.",
+    "PDF belgelerinize gerçek zamanlı konumlandırma ile profesyonel metin filigranı ekleyin. %100 ücretsiz, gizli ve güvenli tarayıcı içi işleme.",
   keywords: [
-    "Watermark PDF",
-    "Add Watermark to PDF",
-    "PDF Watermark Online",
-    "Protect PDF with Watermark",
+    "PDF Filigran",
+    "PDF Filigran Ekle",
+    "PDF Damga",
+    "Ücretsiz Filigran Aracı",
     "PDFEditMobile",
   ],
   openGraph: {
-    title: "Add Watermark to PDF | #1 Free Watermarking Tool",
+    title: "PDF Filigran Ekle | #1 Ücretsiz PDF Filigran Aracı",
     description:
-      "Stamp your PDF files with custom watermarks in seconds. Easy, free, and secure.",
-    url: "https://simplypdf.vercel.app/watermark-pdf",
+      "PDF'lerinize saniyeler içinde profesyonel filigran ekleyin. Hızlı, ücretsiz ve güvenli.",
+    url: "https://pdfeditmobile.vercel.app/watermark-pdf",
   },
 };
 
