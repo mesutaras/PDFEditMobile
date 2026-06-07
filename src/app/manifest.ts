@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "PDFEditMobile",
     short_name: "PDFEditMobile",
     description:
-      "The Easiest PDF Tool for merging, splitting, compressing, and converting PDFs.",
+      "PDF'leri birleştirmek, bölmek, sıkıştırmak ve dönüştürmek için en kolay PDF aracı.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

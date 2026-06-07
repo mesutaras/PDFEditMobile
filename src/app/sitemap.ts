@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://simplypdf.vercel.app";
+    process.env.NEXT_PUBLIC_BASE_URL || "https://pdfeditmobile.vercel.app";
 
   // 1. Core Pages (Highest Priority due to navigation importance)
   const corePages = [
