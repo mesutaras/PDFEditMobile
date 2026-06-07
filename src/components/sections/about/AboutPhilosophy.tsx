@@ -10,7 +10,7 @@ export const AboutPhilosophy = () => {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.4 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
       className="relative mb-20 overflow-hidden rounded-3xl bg-black px-8 py-12 text-center text-white"
     >
       <div className="absolute inset-0 opacity-10">
@@ -24,10 +24,10 @@ export const AboutPhilosophy = () => {
         />
       </div>
       <div className="relative z-10">
-        <p className="mx-auto max-w-3xl text-2xl leading-relaxed font-medium md:text-3xl">
-          &ldquo;{t("about_philosophy_quote")}&rdquo;
+        <h2 className="mb-4 text-2xl font-bold">{t("about_mission_title")}</h2>
+        <p className="mx-auto max-w-3xl text-lg leading-relaxed font-medium text-gray-300">
+          {t("about_mission_text")}
         </p>
-        <p className="mt-6 text-gray-400">— {t("about_philosophy_label")}</p>
       </div>
     </motion.div>
   );

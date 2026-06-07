@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import { AboutHero } from "@/components/sections/about/AboutHero";
 import { AboutSkills } from "@/components/sections/about/AboutSkills";
 import { AboutPhilosophy } from "@/components/sections/about/AboutPhilosophy";
@@ -15,7 +13,6 @@ export default function AboutClient() {
 
   return (
     <main className="min-h-screen overflow-hidden px-4 pt-32 pb-20">
-      {/* Background Elements */}
       <BackgroundGradient />
 
       <div className="container mx-auto max-w-5xl">
@@ -27,7 +24,7 @@ export default function AboutClient() {
           title={t("about_ready_title")}
           description={t("about_ready_desc")}
           primaryBtnText={t("about_ready_btn")}
-          primaryBtnLink="/"
+          primaryBtnLink="/merge-pdf"
         />
       </div>
     </main>
