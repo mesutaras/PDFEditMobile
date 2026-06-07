@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import SupportClient from "@/components/pages/support/SupportClient";
 
 export const metadata: Metadata = {
-  title: "Support | PDFEditMobile",
+  title: "Destek | PDFEditMobile",
   description:
-    "Get help with PDFEditMobile. Contact our team, view FAQs, or browse our documentation.",
+    "PDFEditMobile ile ilgili yardım alın. Ekibimizle iletişime geçin, SSS'leri görüntüleyin veya dokümantasyonumuza göz atın.",
 };
 
 export default function SupportPage() {

@@ -11,32 +11,35 @@ import {
   BookOpen,
 } from "lucide-react";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
-
-const supportOptions = [
-  {
-    icon: Mail,
-    title: "Email Support",
-    description: "Get help from our team via email.",
-    action: "Send Email",
-    href: "mailto:info@pdfeditmobile.com",
-  },
-  {
-    icon: MessageCircle,
-    title: "Contact Form",
-    description: "Submit a request through our contact form.",
-    action: "Open Form",
-    href: "/contact",
-  },
-  {
-    icon: FileQuestion,
-    title: "FAQs",
-    description: "Find answers to commonly asked questions.",
-    action: "View FAQs",
-    href: "/faq",
-  },
-];
+import { useI18n } from "@/lib/i18n";
 
 export default function SupportClient() {
+  const { t } = useI18n();
+
+  const supportOptions = [
+    {
+      icon: Mail,
+      titleKey: "support_email_title",
+      descKey: "support_email_desc",
+      actionKey: "support_email_action",
+      href: "mailto:info@pdfeditmobile.com",
+    },
+    {
+      icon: MessageCircle,
+      titleKey: "support_contact_title",
+      descKey: "support_contact_desc",
+      actionKey: "support_contact_action",
+      href: "/contact",
+    },
+    {
+      icon: FileQuestion,
+      titleKey: "support_faq_title",
+      descKey: "support_faq_desc",
+      actionKey: "support_faq_action",
+      href: "/faq",
+    },
+  ];
+
   return (
     <main className="min-h-screen px-4 pt-32 pb-20">
       <BackgroundGradient />
@@ -52,24 +55,24 @@ export default function SupportClient() {
             className="mb-8 inline-flex items-center gap-2 text-gray-500 transition-colors hover:text-black"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Home
+            {t("common_back_home")}
           </Link>
 
           <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-black text-white">
             <HelpCircle className="h-10 w-10" />
           </div>
           <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-            Support Center
+            {t("support_title")}
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-500">
-            Need help with PDFEditMobile? We&apos;re here to assist you.
+            {t("support_subtitle")}
           </p>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {supportOptions.map((option, index) => (
             <motion.div
-              key={option.title}
+              key={option.titleKey}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + index * 0.1 }}
@@ -78,13 +81,13 @@ export default function SupportClient() {
               <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100">
                 <option.icon className="h-7 w-7" />
               </div>
-              <h2 className="mb-3 text-xl font-bold">{option.title}</h2>
-              <p className="mb-6 text-sm text-gray-500">{option.description}</p>
+              <h2 className="mb-3 text-xl font-bold">{t(option.titleKey)}</h2>
+              <p className="mb-6 text-sm text-gray-500">{t(option.descKey)}</p>
               <Link
                 href={option.href}
                 className="inline-flex w-full items-center justify-center rounded-xl bg-black px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-800"
               >
-                {option.action}
+                {t(option.actionKey)}
               </Link>
             </motion.div>
           ))}
@@ -100,10 +103,9 @@ export default function SupportClient() {
             <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-white/10">
               <BookOpen className="h-6 w-6" />
             </div>
-            <h2 className="mb-4 text-2xl font-bold">Help Documentation</h2>
+            <h2 className="mb-4 text-2xl font-bold">{t("support_docs_title")}</h2>
             <p className="mx-auto mb-8 max-w-lg text-gray-400">
-              Coming soon: Comprehensive guides and tutorials to help you master
-              every PDFEditMobile tool.
+              {t("support_docs_desc")}
             </p>
           </div>
         </motion.div>

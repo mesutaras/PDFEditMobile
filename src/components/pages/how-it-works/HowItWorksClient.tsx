@@ -12,35 +12,34 @@ import {
   FileCheck,
 } from "lucide-react";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
-
-const steps = [
-  {
-    icon: Cpu,
-    title: "1. Local Processing",
-    description:
-      "When you select a file, it remains on your device. PDFEditMobile uses WebAssembly and JavaScript to process the file directly in your browser's memory.",
-  },
-  {
-    icon: CloudOff,
-    title: "2. No Data Upload",
-    description:
-      "Your document is never sent to a backend server. This elimates the risk of data interception or unauthorized access during transmission.",
-  },
-  {
-    icon: Zap,
-    title: "3. Instant Execution",
-    description:
-      "By leveraging your device's own hardware, processing is lightning-fast and doesn't depend on internet upload speeds.",
-  },
-  {
-    icon: FileCheck,
-    title: "4. Secure Output",
-    description:
-      "Once processed, the result is generated as a secure blob in your browser, ready for you to download immediately.",
-  },
-];
+import { useI18n } from "@/lib/i18n";
 
 export default function HowItWorksClient() {
+  const { t } = useI18n();
+
+  const steps = [
+    {
+      icon: Cpu,
+      title: "1. " + t("how_step1_title"),
+      description: t("how_step1_desc"),
+    },
+    {
+      icon: CloudOff,
+      title: "2. " + t("how_step2_title"),
+      description: t("how_step2_desc"),
+    },
+    {
+      icon: Zap,
+      title: "3. " + t("how_step3_title"),
+      description: t("how_step3_desc"),
+    },
+    {
+      icon: FileCheck,
+      title: "4. " + t("how_step4_title"),
+      description: t("how_step4_desc"),
+    },
+  ];
+
   return (
     <main className="min-h-screen px-4 pt-32 pb-20">
       <BackgroundGradient />
@@ -56,18 +55,17 @@ export default function HowItWorksClient() {
             className="mb-8 inline-flex items-center gap-2 text-gray-500 transition-colors hover:text-black"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Home
+            {t("common_back_home")}
           </Link>
 
           <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-black text-white">
             <HelpCircle className="h-10 w-10" />
           </div>
           <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-            How it Works
+            {t("how_title")}
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-500">
-            PDFEditMobile is built on a &quot;Privacy First&quot; architecture.
-            Here&apos;s how we keep your documents 100% secure.
+            {t("how_subtitle")}
           </p>
         </motion.div>
 
@@ -105,12 +103,10 @@ export default function HowItWorksClient() {
             <Shield className="h-8 w-8" />
           </div>
           <h2 className="mb-4 text-3xl font-bold text-green-900">
-            The Browser-First Edge
+            {t("how_highlight_title")}
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-green-800">
-            By doing everything in the client, we ensure that your sensitive
-            data never touches anyone else&apos;s computer. It&apos;s the most
-            secure way to handle PDFs online.
+            {t("how_highlight_desc")}
           </p>
         </motion.div>
       </div>

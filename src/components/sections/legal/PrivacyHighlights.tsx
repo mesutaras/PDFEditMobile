@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Lock, Eye } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 export const PrivacyHighlights = () => {
+  const { t } = useI18n();
+
   return (
     <>
       {/* Key Privacy Highlight */}
@@ -19,12 +22,10 @@ export const PrivacyHighlights = () => {
           </div>
           <div>
             <h3 className="mb-2 text-lg font-bold text-green-800">
-              Your Files Never Leave Your Device
+              {t("privacy_title")}
             </h3>
             <p className="text-green-700">
-              All PDF processing happens directly in your browser. We never
-              upload, store, or access your files. This is the core of our
-              privacy-first approach.
+              {t("privacy_desc")}
             </p>
           </div>
         </div>
@@ -43,12 +44,10 @@ export const PrivacyHighlights = () => {
           </div>
           <div>
             <h3 className="mb-2 text-lg font-bold text-blue-800">
-              How Google Uses Your Data
+              {t("privacy_google_title")}
             </h3>
             <p className="mb-3 text-blue-700">
-              We use Google AdSense to display ads on our website. Google and
-              its partners may use cookies to serve ads based on your prior
-              visits to this or other websites.
+              {t("privacy_google_desc")}
             </p>
             <a
               href="https://policies.google.com/technologies/partner-sites"
@@ -56,7 +55,7 @@ export const PrivacyHighlights = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-medium text-blue-600 hover:underline"
             >
-              Learn how Google uses data when you use our site →
+              {t("privacy_google_link")}
             </a>
           </div>
         </div>

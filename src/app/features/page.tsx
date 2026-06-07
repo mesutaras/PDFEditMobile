@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import FeaturesClient from "@/components/pages/features/FeaturesClient";
 
 export const metadata: Metadata = {
-  title: "Features | PDFEditMobile",
+  title: "Özellikler | PDFEditMobile",
   description:
-    "Explore the powerful features of PDFEditMobile. Fast, secure, and free online PDF tools.",
+    "PDFEditMobile'ın güçlü özelliklerini keşfedin. Hızlı, güvenli ve ücretsiz çevrimiçi PDF araçları.",
 };
 
 export default function FeaturesPage() {
