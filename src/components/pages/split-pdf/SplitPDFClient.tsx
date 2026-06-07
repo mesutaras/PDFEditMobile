@@ -969,49 +969,49 @@ export function SplitPDFClient() {
 
         <EducationalContent
           howItWorks={{
-            title: "How to Split PDF Files",
+            title: "PDF Dosyaları Nasıl Bölünür",
             steps: [
-              "Upload your PDF and wait for our visual page generator to load your document.",
-              "Choose your split mode: extract all pages, select specific pages, or set page ranges.",
-              "Review your split files and download them as a single ZIP archive or individually.",
+              "PDF'inizi yükleyin ve görsel sayfa oluşturucumuzun belgenizi yüklemesini bekleyin.",
+              "Bölme modunuzu seçin: tüm sayfaları çıkarın, belirli sayfaları seçin veya sayfa aralıkları belirleyin.",
+              "Bölünmüş dosyalarınızı inceleyin ve tek bir ZIP arşivi olarak veya ayrı ayrı indirin.",
             ],
           }}
           benefits={{
-            title: "Professional PDF Splitting",
+            title: "Profesyonel PDF Bölme",
             items: [
               {
-                title: "Visual Selection",
-                desc: "Select the pages you want to extract by clicking on high-quality page previews.",
+                title: "Görsel Seçim",
+                desc: "Yüksek kaliteli sayfa önizlemelerine tıklayarak çıkarmak istediğiniz sayfaları seçin.",
               },
               {
-                title: "Multiple Modes",
-                desc: "Split by ranges, every X pages, or by file size. We have a mode for every workflow.",
+                title: "Çoklu Mod",
+                desc: "Aralıklara göre, her X sayfada bir veya dosya boyutuna göre bölün. Her iş akışı için bir modumuz var.",
               },
               {
-                title: "ZIP Downloads",
-                desc: "Large split jobs are automatically bundled into a clean ZIP file for easy management.",
+                title: "ZIP İndirme",
+                desc: "Büyük bölme işleri, kolay yönetim için otomatik olarak temiz bir ZIP dosyasında toplanır.",
               },
               {
-                title: "Zero Data Risk",
-                desc: "Your files never leave your device. All splitting happens locally in your browser.",
+                title: "Sıfır Veri Riski",
+                desc: "Dosyalarınız asla cihazınızdan çıkmaz. Tüm bölme işlemleri tarayıcınızda yerel olarak gerçekleşir.",
               },
             ],
           }}
           faqs={[
             {
-              question: "Can I split a PDF into individual pages?",
+              question: "Bir PDF'i tek tek sayfalara bölebilir miyim?",
               answer:
-                "Yes! Use the 'All Pages' mode to extract every single page of your PDF into its own separate document.",
+                "Evet! 'Tüm Sayfalar' modunu kullanarak PDF'inizin her sayfasını ayrı bir belge olarak çıkarabilirsiniz.",
             },
             {
-              question: "Can I extract only specific pages?",
+              question: "Sadece belirli sayfaları çıkarabilir miyim?",
               answer:
-                "Absolutely. Use the 'Select' mode and simply click on the thumbnails of the pages you want to keep. We'll merge them into a new PDF for you.",
+                "Kesinlikle. 'Sayfa Seç' modunu kullanın ve tutmak istediğiniz sayfaların küçük resimlerine tıklayın. Onları sizin için yeni bir PDF'te birleştireceğiz.",
             },
             {
-              question: "Is there a page limit for splitting?",
+              question: "Bölme için sayfa sınırı var mı?",
               answer:
-                "There's no page limit, but documents with hundreds of pages may take longer to generate previews depending on your device's speed.",
+                "Sayfa sınırı yoktur, ancak yüzlerce sayfalı belgelerin önizlemelerini oluşturmak cihazınızın hızına bağlı olarak daha uzun sürebilir.",
             },
           ]}
         />
