@@ -2,8 +2,7 @@ import { MetadataRoute } from "next";
 import { getBlogSlugs, getBlogPost } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://pdfeditmobile.vercel.app";
+  const baseUrl = "https://pdfeditmobile.com";
 
   // 1. Core Pages (Highest Priority due to navigation importance)
   const corePages = [
