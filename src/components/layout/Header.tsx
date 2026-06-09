@@ -159,8 +159,8 @@ export default function Header() {
               onClick={() => setLang(lang === "tr" ? "en" : "tr")}
               className="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-black hover:text-black hover:shadow-md"
             >
-              <span className="text-base">{lang === "tr" ? "🇬🇧" : "🇹🇷"}</span>
-              <span>{lang === "tr" ? "EN" : "TR"}</span>
+              <span className="text-base">{lang === "tr" ? "🇹🇷" : "🇬🇧"}</span>
+              <span>{lang === "tr" ? "TR" : "EN"}</span>
             </button>
 
             {isLoading ? (
@@ -230,8 +230,8 @@ export default function Header() {
               onClick={() => setLang(lang === "tr" ? "en" : "tr")}
               className="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-black hover:text-black hover:shadow-md"
             >
-              <span className="text-base">{lang === "tr" ? "🇬🇧" : "🇹🇷"}</span>
-              <span>{lang === "tr" ? "EN" : "TR"}</span>
+              <span className="text-base">{lang === "tr" ? "🇹🇷" : "🇬🇧"}</span>
+              <span>{lang === "tr" ? "TR" : "EN"}</span>
             </button>
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="rounded-xl p-2 transition-colors hover:bg-gray-100">
               <div className="relative h-6 w-6">
