@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
+  // Prevent redirect issues with Google indexing
+  trailingSlash: false,
   // Silence Turbopack error and provide module aliases
   turbopack: {
     resolveAlias: {
