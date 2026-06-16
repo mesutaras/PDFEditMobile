@@ -133,7 +133,7 @@ export default function Header() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
                   >
-                    <div className="grid w-[640px] grid-cols-3 gap-2 rounded-2xl border border-gray-100 bg-white p-4 shadow-2xl">
+                    <div className="grid w-[800px] grid-cols-4 gap-1.5 rounded-2xl border border-gray-100 bg-white p-4 shadow-2xl max-h-[70vh] overflow-y-auto">
                       {tools.map((tool) => (
                         <Link key={tool.key} href={tool.href} className="group flex items-center gap-3 rounded-xl p-3 transition-colors hover:bg-gray-50">
                           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 transition-all group-hover:bg-black group-hover:text-white">

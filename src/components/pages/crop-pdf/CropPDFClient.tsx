@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { Scissors, RotateCw, X, Upload } from "lucide-react";
 import * as pdfjsLib from "pdfjs-dist";
 import { PDFDocument } from "pdf-lib";
@@ -30,6 +30,24 @@ export function CropPDFClient() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const imgRefCallback = useRef<HTMLImageElement | null>(null);
+  const isDraggingRef = useRef(false);
+
+  // Fix mouse stuck when leaving PDF area
+  useEffect(() => {
+    const handleGlobalMouseUp = () => {
+      if (isDraggingRef.current) {
+        setIsDragging(false);
+        isDraggingRef.current = false;
+      }
+    };
+    window.addEventListener("mouseup", handleGlobalMouseUp);
+    return () => window.removeEventListener("mouseup", handleGlobalMouseUp);
+  }, []);
+
+  // Reset crop area when changing page
+  useEffect(() => {
+    setCropArea(null);
+  }, [currentPage]);
 
   const loadPDF = useCallback(async (f: File) => {
     setFile(f);
