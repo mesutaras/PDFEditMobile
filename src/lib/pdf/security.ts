@@ -100,38 +100,29 @@ export async function unlockPDFWithFallback(
 ): Promise<Uint8Array> {
   const arrayBuffer = await file.arrayBuffer();
 
-  // Tier 1: Try pdf-lib (Good for owner password/restrictions)
+  // Tier 1: Try pdf-lib with ignoreEncryption to strip owner restrictions
   try {
     const pdf = await PDFDocument.load(arrayBuffer, {
       ignoreEncryption: true,
     });
 
-    // If we can load it and it's not actually encrypted or pdf-lib handled it
-    if (!pdf.isEncrypted) {
-      return pdf.save();
+    // If pdf-lib can load and save it directly (owner-password-only or restrictions), use that
+    const saved = await pdf.save();
+    // Verify it's not empty (at least 1KB)
+    if (saved.byteLength > 1024) {
+      return saved;
     }
-
-    // Try to copy pages to a new doc (this often strips restrictions)
-    const newPdf = await PDFDocument.create();
-    const copiedPages = await newPdf.copyPages(pdf, pdf.getPageIndices());
-    copiedPages.forEach((page) => newPdf.addPage(page));
-    return newPdf.save();
-  } catch (error) {
-    console.warn(
-      "Tier 1 Unlock failed, attempting Tier 2 (Deep Unlock):",
-      error
-    );
+  } catch {
+    // Fall through to Tier 2
   }
 
-  // Tier 2: Deep Unlock via PDF.js Rendering
-  // This is the absolute fallback for strong encryption
+  // Tier 2: Deep Unlock via PDF.js Rendering (for strong/user-password encrypted PDFs)
   const pdfjsLib = await import("pdfjs-dist");
-  const workerUrl = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
-  pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl;
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
 
   const loadingTask = pdfjsLib.getDocument({
     data: new Uint8Array(arrayBuffer),
-    password: password,
+    password: password || undefined,
   });
 
   const pdfDoc = await loadingTask.promise;
@@ -140,13 +131,13 @@ export async function unlockPDFWithFallback(
 
   for (let i = 1; i <= numPages; i++) {
     const page = await pdfDoc.getPage(i);
-    const viewport = page.getViewport({ scale: 2.0 }); // High res for quality
+    const viewport = page.getViewport({ scale: 2.0 });
     const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d")!;
+    const ctx = canvas.getContext("2d")!;
     canvas.height = viewport.height;
     canvas.width = viewport.width;
 
-    await page.render({ canvasContext: context, viewport }).promise;
+    await page.render({ canvasContext: ctx, viewport }).promise;
     const imgData = canvas.toDataURL("image/jpeg", 0.95);
     const imgBytes = await fetch(imgData).then((res) => res.arrayBuffer());
 
