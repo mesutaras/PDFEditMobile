@@ -2,7 +2,6 @@ import { PDFDocument } from "pdf-lib";
 
 /**
  * Protect PDF with password using industrial-grade qpdf-wasm
- * Provides actual AES-256 encryption and working permission flags.
  */
 export async function protectPDF(
   file: File,
@@ -18,105 +17,77 @@ export async function protectPDF(
   const createModule = (await import("@neslinesli93/qpdf-wasm")).default;
   const arrayBuffer = await file.arrayBuffer();
 
-  // Initialize qpdf module using the local WASM file we've provided in the public folder
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const qpdf: any = await createModule({
     locateFile: (path: string) => `/${path}`,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } as any);
 
   const inputName = "/input.pdf";
   const outputName = "/output.pdf";
-
-  // Write input to virtual file system
   qpdf.FS.writeFile(inputName, new Uint8Array(arrayBuffer));
 
-  // Construct qpdf arguments
-  // --encrypt <user-pw> <owner-pw> <key-length> [restrictions] --
   const args = [
-    inputName,
-    "--encrypt",
-    userPassword || "",
-    ownerPassword || userPassword || "", // If only one provided, use for both
-    "256", // AES-256 bit
+    inputName, "--encrypt",
+    userPassword || "", ownerPassword || userPassword || "", "256",
   ];
-
-  // Add restrictions if any are disabled (by default they are enabled in our UI state if true)
-  // qpdf 'restrictions' are actually flags of what is ALLOWED.
   if (!permissions.printing) args.push("--print=none");
   if (!permissions.copying) args.push("--extract=n");
   if (!permissions.modifying) args.push("--modify=none");
   if (!permissions.annotating) args.push("--annotate=n");
-
   args.push("--", outputName);
 
-  // Run encryption
   try {
     const exitCode = qpdf.callMain(args);
-    // If it doesn't throw but returns 3, it's a warning success
-    if (exitCode !== 0 && exitCode !== 3) {
-      throw new Error(`qpdf exited with code ${exitCode}`);
-    }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if (exitCode !== 0 && exitCode !== 3) throw new Error(`qpdf exit ${exitCode}`);
   } catch (err: any) {
-    // qpdf-wasm/emscripten often throws ExitStatus for non-zero exit codes
-    const isWarning =
-      err &&
-      typeof err === "object" &&
-      (err.status === 3 || err.exitCode === 3 || err.code === 3);
-
-    if (!isWarning) {
-      console.error("qpdf execution error:", err);
-      throw new Error(
-        "Encryption engine failed. The file might be corrupted or incompatible."
-      );
-    }
-
-    console.warn("qpdf completed with warnings (Exit 3):", err);
+    const ok = err && typeof err === "object" && (err.status === 3 || err.exitCode === 3 || err.code === 3);
+    if (!ok) throw new Error("Encryption engine failed.");
   }
 
-  // Verify output exists using stat and read result
-  try {
-    qpdf.FS.stat(outputName);
-  } catch {
-    throw new Error("Encryption failed: Secure output file was not generated.");
-  }
-
-  const outputData = qpdf.FS.readFile(outputName);
-
-  // Cleanup
-  qpdf.FS.unlink(inputName);
-  qpdf.FS.unlink(outputName);
-
-  return outputData;
+  try { qpdf.FS.stat(outputName); } catch { throw new Error("Output not generated."); }
+  const out = qpdf.FS.readFile(outputName);
+  qpdf.FS.unlink(inputName); qpdf.FS.unlink(outputName);
+  return out;
 }
 
 /**
- * Unlock PDF with fallback strategy
+ * Unlock PDF - 3 tier strategy
  */
 export async function unlockPDFWithFallback(
   file: File,
   password?: string
-): Promise<Uint8Array> {
+): Promise<{ data: Uint8Array; method: "decrypt" | "render" }> {
   const arrayBuffer = await file.arrayBuffer();
 
-  // Tier 1: Try pdf-lib with ignoreEncryption to strip owner restrictions
+  // Tier 1: qpdf decrypt (no password or with password)
   try {
-    const pdf = await PDFDocument.load(arrayBuffer, {
-      ignoreEncryption: true,
-    });
+    const createModule2 = (await import("@neslinesli93/qpdf-wasm")).default;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const qpdf: any = await createModule2({
+      locateFile: (path: string) => `/${path}`,
+    } as any);
+    const inputName = "/input.pdf";
+    const outputName = "/output.pdf";
+    qpdf.FS.writeFile(inputName, new Uint8Array(arrayBuffer));
 
-    // If pdf-lib can load and save it directly (owner-password-only or restrictions), use that
-    const saved = await pdf.save();
-    // Verify it's not empty (at least 1KB)
-    if (saved.byteLength > 1024) {
-      return saved;
-    }
-  } catch {
-    // Fall through to Tier 2
-  }
+    const args = [inputName, "--decrypt"];
+    if (password) args.splice(1, 0, `--password=${password}`);
+    args.push(outputName);
 
-  // Tier 2: Deep Unlock via PDF.js Rendering (for strong/user-password encrypted PDFs)
+    try {
+      const exitCode = qpdf.callMain(args);
+      if (exitCode === 0 || exitCode === 3) {
+        try { qpdf.FS.stat(outputName); } catch { throw new Error("no output"); }
+        const out = qpdf.FS.readFile(outputName);
+        qpdf.FS.unlink(inputName); qpdf.FS.unlink(outputName);
+        if (out.byteLength > 1024) return { data: out, method: "decrypt" };
+      }
+    } catch { /* fall through */ }
+    try { qpdf.FS.unlink(inputName); } catch {}
+    try { qpdf.FS.unlink(outputName); } catch {}
+  } catch { /* fall through */ }
+
+  // Tier 2: PDF.js high-quality render (last resort)
   const pdfjsLib = await import("pdfjs-dist");
   pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
 
@@ -124,35 +95,26 @@ export async function unlockPDFWithFallback(
     data: new Uint8Array(arrayBuffer),
     password: password || undefined,
   });
-
   const pdfDoc = await loadingTask.promise;
-  const numPages = pdfDoc.numPages;
   const newPdf = await PDFDocument.create();
 
-  for (let i = 1; i <= numPages; i++) {
+  for (let i = 1; i <= pdfDoc.numPages; i++) {
     const page = await pdfDoc.getPage(i);
-    const viewport = page.getViewport({ scale: 2.0 });
+    const viewport = page.getViewport({ scale: 3.0 }); // 300 DPI için yüksek kalite
     const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d")!;
-    canvas.height = viewport.height;
     canvas.width = viewport.width;
-
+    canvas.height = viewport.height;
+    const ctx = canvas.getContext("2d")!;
     await page.render({ canvasContext: ctx, viewport }).promise;
-    const imgData = canvas.toDataURL("image/jpeg", 0.95);
-    const imgBytes = await fetch(imgData).then((res) => res.arrayBuffer());
-
-    const pdfImg = await newPdf.embedJpg(imgBytes);
-    const newPage = newPdf.addPage([pdfImg.width, pdfImg.height]);
-    newPage.drawImage(pdfImg, {
-      x: 0,
-      y: 0,
-      width: pdfImg.width,
-      height: pdfImg.height,
-    });
-
-    (page as { cleanup?: () => void }).cleanup?.();
+    
+    const imgData = canvas.toDataURL("image/png"); // PNG = kayıpsız
+    const imgBytes = await fetch(imgData).then(r => r.arrayBuffer());
+    const pdfImg = await newPdf.embedPng(imgBytes);
+    const p = newPdf.addPage([pdfImg.width, pdfImg.height]);
+    p.drawImage(pdfImg, { x: 0, y: 0, width: pdfImg.width, height: pdfImg.height });
+    (page as any).cleanup?.();
   }
 
   await pdfDoc.destroy();
-  return newPdf.save();
+  return { data: await newPdf.save(), method: "render" };
 }

@@ -45,7 +45,8 @@ export function UnlockPDFClient() {
       setPages(pageInfos); setCustomFileName(`unlocked_${pdfFile.name}`); setStatus("ready"); await pdfDoc.destroy();
     } catch (error: unknown) { if (error instanceof Error && (error.name === "PasswordException" || error.message.includes("password"))) { setCustomFileName(`unlocked_${pdfFile.name}`); setStatus("ready"); } else { setErrorMessage("Failed to load PDF"); setStatus("error"); } }
   };
-  const handleUnlock = async () => { if (!file) return; setStatus("processing"); setErrorMessage(""); try { const pdfBytes = await unlockPDFWithFallback(file, password); setResultBlob(uint8ArrayToBlob(pdfBytes)); setStatus("success"); addToHistory("Unlocked PDF", file.name, "Security restrictions removed"); } catch (error: unknown) { setErrorMessage(error instanceof Error ? error.message : "Failed to unlock PDF"); setStatus("error"); } };
+  const [unlockMethod, setUnlockMethod] = useState<"decrypt" | "render" | null>(null);
+  const handleUnlock = async () => { if (!file) return; setStatus("processing"); setErrorMessage(""); setUnlockMethod(null); try { const result = await unlockPDFWithFallback(file, password); setResultBlob(uint8ArrayToBlob(result.data)); setUnlockMethod(result.method); setStatus("success"); addToHistory("Unlocked PDF", file.name, result.method === "decrypt" ? "Security removed" : "Rendered as image"); } catch (error: unknown) { setErrorMessage(error instanceof Error ? error.message : "Failed to unlock PDF"); setStatus("error"); } };
   const handleDownload = () => { if (!resultBlob) return; const url = URL.createObjectURL(resultBlob); const l = document.createElement("a"); l.href = url; l.download = customFileName; l.click(); URL.revokeObjectURL(url); };
   const reset = () => { setFile(null); setPassword(""); setStatus("idle"); setResultBlob(null); setPages([]); setErrorMessage(""); };
 
