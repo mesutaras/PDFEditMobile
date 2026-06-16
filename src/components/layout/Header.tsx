@@ -48,6 +48,7 @@ const headerTools = [
   { key: "header_edit", icon: Type, href: "/edit-pdf" },
   { key: "header_ocr", icon: ScanLine, href: "/ocr-pdf" },
   { key: "header_repair", icon: Wrench, href: "/repair-pdf" },
+  { key: "header_crop", icon: Scissors, href: "/crop-pdf" },
   { key: "header_metadata", icon: FileText, href: "/edit-metadata" },
 ];
 

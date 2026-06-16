@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 3. All PDF Tools (High Priority - Main Logic)
   // Ordered alphabetically or by importance
   const tools = [
+    "crop-pdf",
     "compress-pdf",
     "delete-pages",
     "duplicate-pages",
