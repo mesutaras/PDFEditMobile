@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getBlogSlugs, getBlogPost } from "@/lib/blog";
+import { getAllLandingSlugs } from "@/lib/landing-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://pdfeditmobile.com";
@@ -106,6 +107,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
+    })),
+    // Landing Pages
+    ...getAllLandingSlugs().map((slug) => ({
+      url: `${baseUrl}/landing/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
     })),
   ];
 
