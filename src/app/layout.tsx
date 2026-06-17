@@ -121,6 +121,18 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${inter.variable} ${greatVibes.variable} ${alexBrush.variable} flex min-h-screen flex-col font-sans antialiased`}
       >
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-D15ZFECF2D"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-D15ZFECF2D');`}
+        </Script>
+        {/* Google AdSense */}
         <Script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${
