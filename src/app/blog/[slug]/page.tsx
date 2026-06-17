@@ -161,6 +161,14 @@ export default async function BlogPostPage({ params }: Props) {
             >
               {post.lang === "tr" ? "Araçları Keşfet" : "Explore Tools"} →
             </Link>
+            <a
+              href="https://www.buymeacoffee.com/pdfeditmobile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-2 rounded-full bg-amber-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-amber-600"
+            >
+              ☕ {post.lang === "tr" ? "Kahve Ismarla" : "Buy me a coffee"}
+            </a>
           </div>
         </div>
       </article>

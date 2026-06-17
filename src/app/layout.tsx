@@ -134,6 +134,17 @@ export default function RootLayout({
           <WelcomeAuthModal />
           <CookieConsent />
           <main className="grow">{children}</main>
+          {/* AdSense - Footer üstü tek zarif reklam */}
+          <div className="mx-auto w-full max-w-4xl px-4 pb-8">
+            <div className="rounded-xl bg-gray-50/50 py-4">
+              <ins className="adsbygoogle"
+                style={{ display: "block", textAlign: "center" }}
+                data-ad-client="ca-pub-4266443141083729"
+                data-ad-slot="8901234567"
+                data-ad-format="auto"
+                data-full-width-responsive="true" />
+            </div>
+          </div>
           <Footer />
         </Providers>
       </body>
