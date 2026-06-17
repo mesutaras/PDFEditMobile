@@ -119,6 +119,11 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
             >
               Try {page.toolName} Now <ArrowRight className="h-5 w-5" />
             </Link>
+            <div className="mt-4">
+              <a href="https://www.buymeacoffee.com/pdfeditmobile" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-amber-500 px-4 py-2 text-sm font-medium text-gray-900 shadow-sm transition-all hover:bg-amber-400">
+                ☕ Buy me a coffee
+              </a>
+            </div>
           </div>
         </div>
       </section>

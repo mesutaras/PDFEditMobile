@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
   },
   // Prevent redirect issues with Google indexing
   trailingSlash: false,
+  // Core Web Vitals optimization
+  compress: true,
+  productionBrowserSourceMaps: false,
+  poweredByHeader: false,
+  reactStrictMode: true,
   // Silence Turbopack error and provide module aliases
   turbopack: {
     resolveAlias: {
