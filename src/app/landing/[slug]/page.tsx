@@ -16,12 +16,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: page.title,
     description: page.description,
     keywords: page.keywords,
+    alternates: { canonical: `https://pdfeditmobile.com/landing/${slug}` },
+    twitter: {
+      card: "summary_large_image",
+      title: page.title,
+      description: page.description,
+    },
     openGraph: {
       title: page.title,
       description: page.description,
       type: "website",
+      url: `https://pdfeditmobile.com/landing/${slug}`,
+      siteName: "PDFEditMobile",
     },
-    alternates: { canonical: `https://pdfeditmobile.com/landing/${slug}` },
   };
 }
 

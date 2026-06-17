@@ -24,15 +24,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!post) return {};
 
+  const baseUrl = "https://pdfeditmobile.com";
   return {
     title: post.title,
     description: post.description,
+    alternates: { canonical: `${baseUrl}/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
       publishedTime: post.date,
+      url: `${baseUrl}/blog/${slug}`,
+      siteName: "PDFEditMobile",
       images: post.image ? [{ url: post.image }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
     },
   };
 }
@@ -53,16 +62,38 @@ export default async function BlogPostPage({ params }: Props) {
     genel: "Genel",
   };
 
+  // Extract FAQ from markdown: find "## Sıkça Sorulan Sorular" or "## Frequently Asked Questions" sections
+  const faqMatch = post.content.match(/## Sıkça Sorulan Sorular\n\n\*\*(.*?)\*\*\n([\s\S]*?)(?=\n## |\n$)/);
+  const enFaqMatch = post.content.match(/## Frequently Asked Questions\n\n\*\*(.*?)\*\*\n([\s\S]*?)(?=\n## |\n$)/);
+  
+  const faqSection = faqMatch || enFaqMatch;
+  const faqItems: { question: string; answer: string }[] = [];
+  
+  if (faqSection) {
+    const qaRegex = /\*\*(.*?)\*\*\n([\s\S]*?)(?=\n\*\*|$)/g;
+    let qaMatch;
+    while ((qaMatch = qaRegex.exec(faqSection[0])) !== null) {
+      faqItems.push({ question: qaMatch[1].trim(), answer: qaMatch[2].trim().substring(0, 500) });
+    }
+  }
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    author: {
-      "@type": "Organization",
-      name: "PDFEditMobile",
-    },
+    author: { "@type": "Organization", name: "PDFEditMobile" },
+    ...(faqItems.length > 0 ? {
+      hasPart: faqItems.map(faq => ({
+        "@type": "FAQPage",
+        mainEntity: [{
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer }
+        }]
+      }))
+    } : {}),
   };
 
   return (
