@@ -49,6 +49,8 @@ const headerTools = [
   { key: "header_ocr", icon: ScanLine, href: "/ocr-pdf" },
   { key: "header_repair", icon: Wrench, href: "/repair-pdf" },
   { key: "header_crop", icon: Scissors, href: "/crop-pdf" },
+  { key: "header_pdf_to_png", icon: FileImage, href: "/pdf-to-png" },
+  { key: "header_grayscale", icon: Minimize2, href: "/grayscale-pdf" },
   { key: "header_metadata", icon: FileText, href: "/edit-metadata" },
 ];
 

@@ -46,6 +46,8 @@
   "header_ocr": "OCR",
   "header_repair": "Onar",
   "header_crop": "PDF Kırp",
+  "header_pdf_to_png": "PDF'ten PNG'ye",
+  "header_grayscale": "Siyah Beyaz",
   "header_metadata": "Meta Veri",
 
   "hero_badge": "%100 Ücretsiz ve Gizlilik Odaklı",
